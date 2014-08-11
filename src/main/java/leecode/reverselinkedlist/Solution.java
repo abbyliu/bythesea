@@ -12,7 +12,7 @@ return 1->4->3->2->5->NULL.
 
 Note:
 Given m, n satisfy the following condition:
-1 ¡Ü m ¡Ü n ¡Ü length of list. 
+1 <= m <= n <= length of list. 
  */
 public class Solution {
     public ListNode reverseBetween(ListNode head, int m, int n) {

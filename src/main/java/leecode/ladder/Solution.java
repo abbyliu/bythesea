@@ -104,6 +104,7 @@ public class Solution {
 		return finals;
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void dfs(Node s, Node end, 
 		ArrayList<ArrayList<String>> result, List<String> visited) {
 		if (s.v.equals(end.v)) {
