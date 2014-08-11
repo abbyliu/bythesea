@@ -1,9 +1,10 @@
 package leecode.addbinary;
-//Given two binary strings, return their sum (also a binary string). 
-//For example,
-//a = "11"
-//b = "1"
-//Return "100".    O(a.length()+b.length())
+/*Given two binary strings, return their sum (also a binary string). 
+For example,
+a = "11"
+b = "1"
+Return "100".    O(a.length()+b.length())
+*/
 public class Solution {
     public String addBinary(String a, String b) {
         int carry = 0;
