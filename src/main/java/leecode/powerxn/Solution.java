@@ -1,6 +1,7 @@
 package leecode.powerxn;
 /*
  * Implement pow(x, n). 
+ * O(lgn)
  */
 public class Solution {
 	public double pow2(double  x, int n) {

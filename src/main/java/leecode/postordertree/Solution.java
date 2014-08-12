@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Stack;
 /*
  * Given a binary tree, return the postorder traversal of its nodes' values.
- * 
+ * O(n)
  */
 public class Solution {
     public ArrayList<Integer> postorderTraversal(TreeNode root) {

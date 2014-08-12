@@ -1,6 +1,8 @@
 package leecode.maxrectangle;
 
-
+/*
+ * O(m*n)
+ */
 public class Solution {
 public int maximalRectangle(char[][] matrix) {
         // Start typing your Java solution below

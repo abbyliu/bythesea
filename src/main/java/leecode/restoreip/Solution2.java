@@ -1,5 +1,7 @@
 package leecode.restoreip;
-
+/*
+ * O(3*3*3)
+ */
 import java.util.ArrayList;
 import java.util.List;
 

@@ -2,7 +2,9 @@ package leecode.populatenextright2;
 /*
  * Follow up for problem "Populating Next Right Pointers in Each Node".
 
+
 What if the given tree could be any binary tree? Would your previous solution still work?
+O(n)
  */
 import leecode.populatenextright.TreeLinkNode;
 

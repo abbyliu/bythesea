@@ -10,6 +10,7 @@ Return [1,3,3,1].
 
 Note:
 Could you optimize your algorithm to use only O(k) extra space? 
+O(n2)
  */
 public class Solution {
     public List<Integer> getRow(int rowIndex) {

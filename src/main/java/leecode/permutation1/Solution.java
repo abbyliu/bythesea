@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 /*
  * Given a collection of numbers, return all possible permutations. 
+ * O(factorial)
  */
 public class Solution {
 	

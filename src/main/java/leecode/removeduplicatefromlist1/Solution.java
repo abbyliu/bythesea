@@ -7,6 +7,7 @@ import leecode.sortedlisttobst.ListNode;
 For example,
 Given 1->1->2, return 1->2.
 Given 1->1->2->3->3, return 1->2->3. 
+O(n)
  */
 public class Solution {
     public ListNode deleteDuplicates(ListNode head) {

@@ -21,6 +21,7 @@ import java.util.Set;
  * 2. Be careful comparing double, even for calculating hashCode
  * 3. Do not miss input validation!!
  * 4. understand your question first before dive into coding
+ * O(n2)
  */
 
 /*

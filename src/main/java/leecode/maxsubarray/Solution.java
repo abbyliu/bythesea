@@ -2,6 +2,7 @@ package leecode.maxsubarray;
 
 /*
  * Find the contiguous subarray within an array (containing at least one number) which has the largest sum. 
+ * O(n)
  */
 public class Solution {
 	public int maxSubArray4(int A[]) {

@@ -3,6 +3,7 @@ package leecode.multiplystrings;
  * Given two numbers represented as strings, return multiplication of the numbers as a string.
 
 Note: The numbers can be arbitrarily large and are non-negative.
+O(m*n)
  */
 public class Soution {
 

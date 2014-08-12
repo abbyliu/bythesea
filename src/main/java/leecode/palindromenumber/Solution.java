@@ -1,6 +1,7 @@
 package leecode.palindromenumber;
 /*
  * Determine whether an integer is a palindrome. Do this without extra space.
+ * O(m)
  */
 public class Solution {
 

@@ -4,6 +4,7 @@ package leecode.minpathsum;
  * find a path from top left to bottom right which minimizes the sum of all numbers along its path.
 
 Note: You can only move either down or right at any point in time.
+O(m*n), space can be optimized to O(n)
  */
 public class Solution {
 	

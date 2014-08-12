@@ -8,6 +8,7 @@ import java.util.Stack;
 import leecode.postordertree.TreeNode;
 /*
  * Given a binary tree and a sum, find all root-to-leaf paths where each path's sum equals the given sum. 
+ * O(N)
  */
 public class Solution {
     public List<List<Integer>> pathSum(TreeNode root, int sum) {

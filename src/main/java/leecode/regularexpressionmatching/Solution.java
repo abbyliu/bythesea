@@ -1,6 +1,7 @@
 package leecode.regularexpressionmatching;
 /*
  * implement regular expression matching with support for '.' and '*'.
+ * O(M*N)
  */
 public class Solution {
 	

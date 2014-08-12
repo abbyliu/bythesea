@@ -7,6 +7,7 @@ import java.util.Stack;
 import leecode.postordertree.TreeNode;
 /*
  * Given a binary tree, return the preorder traversal of its nodes' values.
+ * O(N)
  */
 public class Solution {
     public ArrayList<Integer> preorderTraversal(TreeNode root) {

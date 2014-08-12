@@ -6,6 +6,7 @@ import java.util.List;
  * Given numRows, generate the first numRows of Pascal's triangle.
 
 For example, given numRows = 5,
+O(n2)
  */
 public class Solution {
     public List<List<Integer>> generate(int numRows) {

@@ -11,6 +11,7 @@ Note:
 A solution using O(n) space is pretty straight forward. Could you devise a constant space solution?
 
 confused what "{1,#,2,3}" means? > read more on how binary tree is serialized on OJ.
+O(N)
  */
 public class Solution {
 	
