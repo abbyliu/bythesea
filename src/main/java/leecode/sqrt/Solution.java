@@ -3,6 +3,7 @@ package leecode.sqrt;
  * Implement int sqrt(int x).
 
 Compute and return the square root of x.
+O(logX)
  */
 public class Solution {
     public int sqrt(int x) {

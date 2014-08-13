@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 /*
  * Given an array of integers, find two numbers such that they add up to a specific target number.
+ * O(N)
  */
 public class Solution {
     public int[] twoSum(int[] numbers, int target) {

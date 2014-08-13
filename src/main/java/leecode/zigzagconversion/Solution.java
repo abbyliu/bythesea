@@ -1,5 +1,7 @@
 package leecode.zigzagconversion;
-
+/*
+ * O(s.length())
+ */
 public class Solution {
 
 	/**

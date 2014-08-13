@@ -3,6 +3,7 @@ package leecode.validateparenthese;
 import java.util.Stack;
 /*
  * Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+ * O(s.length())
  */
 public class Solution {
 

@@ -12,7 +12,7 @@ You should return the following matrix:
  [ 8, 9, 4 ],
  [ 7, 6, 5 ]
 ]
-
+O(M*N)
  */
 public class Solution {
     public int[][] generateMatrix(int n) {

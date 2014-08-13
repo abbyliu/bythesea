@@ -6,7 +6,7 @@ package leecode.search2dmatrix;
     Integers in each row are sorted from left to right.
     The first integer of each row is greater than the last integer of the previous row.
 
-
+O(logm*n)
  */
 public class Solution {
     public boolean searchMatrix(int[][] matrix, int target) {

@@ -2,6 +2,7 @@ package leecode.singlenumber;
 
 /*
  * Given an array of integers, every element appears twice except for one. Find that single one.
+ * O(N)
  */
 public class Solution {
     public int singleNumber(int[] A) {

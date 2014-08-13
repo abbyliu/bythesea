@@ -13,6 +13,7 @@ Note:
 
 For example,
 If S = [1,2,3], a solution is: 
+O(exp)
  */
 public class Solution {
     public List<List<Integer>> subsets(int[] S) {

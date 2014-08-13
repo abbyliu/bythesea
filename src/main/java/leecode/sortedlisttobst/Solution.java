@@ -3,7 +3,7 @@ package leecode.sortedlisttobst;
 import leecode.postordertree.TreeNode;
 /*
  * Given a singly linked list where elements are sorted in ascending order, convert it to a height balanced BST.
- * 
+ * O(N)
  */
 public class Solution {
 		private ListNode list;

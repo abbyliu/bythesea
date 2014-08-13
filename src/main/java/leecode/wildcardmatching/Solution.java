@@ -1,6 +1,7 @@
 package leecode.wildcardmatching;
 /*
  * Implement wildcard pattern matching with support for '?' and '*'.
+ * O(M*N)
  */
 public class Solution {
     public boolean isMatch(String s, String p) {

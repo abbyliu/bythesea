@@ -1,5 +1,8 @@
 package leecode.searchinsert;
 
+/*
+ * O(lgn)
+ */
 public class Solution {
 
 	/**

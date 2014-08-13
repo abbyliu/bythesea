@@ -2,7 +2,9 @@ package leecode.wordbreak;
 
 import java.util.HashSet;
 import java.util.Set;
-
+/*
+ * O(s.length2)
+ */
 public class Solution {
 	
 	public boolean wordBreak3(String s, Set<String> dict) {

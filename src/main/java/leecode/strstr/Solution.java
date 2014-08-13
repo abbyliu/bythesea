@@ -4,6 +4,7 @@ package leecode.strstr;
 
 Returns a pointer to the first occurrence of 
 needle in haystack, or null if needle is not part of haystack. 
+O(N2)
  */
 public class Solution {
 

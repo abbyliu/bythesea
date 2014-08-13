@@ -8,6 +8,7 @@ import leecode.postordertree.TreeNode;
  * Given n, generate all structurally unique BST's (binary search trees) that store values 1...n.
 
 For example,
+O(exp)
  */
 public class Solution {
     public List<TreeNode> generateTrees(int n) {

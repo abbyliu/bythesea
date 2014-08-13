@@ -5,6 +5,7 @@ package leecode.uniquepaths;
 The robot can only move either down or right at any point in time. The robot is trying to reach the bottom-right corner of the grid (marked 'Finish' in the diagram below).
 
 How many possible unique paths are there?
+O(M*N)
  */
 public class Solution {
     public int uniquePaths(int m, int n) {

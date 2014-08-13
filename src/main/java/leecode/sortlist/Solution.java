@@ -1,6 +1,8 @@
 package leecode.sortlist;
 
-
+/*
+ * O(nlogn)
+ */
 public class Solution {
 
 	   ListNode hd = null;

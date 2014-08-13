@@ -6,6 +6,7 @@ What if duplicates are allowed?
 Would this affect the run-time complexity? How and why?
 
 Write a function to determine if a given target is in the array.
+O(logN) worst O(N)
  */
 public class Solution {
     public boolean search(int[] A, int target) {

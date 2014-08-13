@@ -9,6 +9,7 @@ If the target is not found in the array, return [-1, -1].
 For example,
 Given [5, 7, 7, 8, 8, 10] and target value 8,
 return [3, 4]. 
+O(lgn) worse case O(n)
  */
 public class Solution {
 

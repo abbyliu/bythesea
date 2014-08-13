@@ -14,7 +14,8 @@ Given the following matrix:
  [ 7, 8, 9 ]
 ]
 
-You should return [1,2,3,6,9,8,7,4,5]. 
+You should return [1,2,3,6,9,8,7,4,5].
+O(M*N) 
  */
 public class Solution {
 	public List<Integer> spiralOrder(int[][] matrix) {

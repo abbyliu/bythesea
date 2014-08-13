@@ -1,6 +1,7 @@
 package leecode.validnumber;
 /*
  * Validate if a given string is numeric.
+ * O(s.length())
  */
 public class Solution {
 	  public static void main(String[] args) {

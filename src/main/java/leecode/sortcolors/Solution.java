@@ -8,6 +8,7 @@ Note:
 You are not suppose to use the library's sort function for this problem.
 
 click to show follow up.
+O(N)
  */
 public class Solution {
     public void sortColors(int[] A) {

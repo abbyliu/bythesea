@@ -8,6 +8,7 @@ import java.util.Stack;
 An example is the root-to-leaf path 1->2->3 which represents the number 123.
 
 Find the total sum of all root-to-leaf numbers.
+O(N)
  */
 public class Solution {
     public int sumNumbers(TreeNode root) {

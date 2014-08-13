@@ -14,6 +14,7 @@ For the last line of text, it should be left justified and no extra space is ins
 For example,
 words: ["This", "is", "an", "example", "of", "text", "justification."]
 L: 16. 
+O(# of words)
  */
 public class Solution {
     public List<String> fullJustify(String[] words, int L) {

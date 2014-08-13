@@ -4,6 +4,7 @@ package leecode.wordsearch;
 
 The word can be constructed from letters of sequentially adjacent cell, where "adjacent" cells are 
 those horizontally or vertically neighboring. The same letter cell may not be 
+O(exp)
  */
 public class Solution {
     public boolean exist(char[][] board, String word) {

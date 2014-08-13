@@ -7,6 +7,7 @@ import java.util.Stack;
 For example,
 path = "/home/", => "/home"
 path = "/a/./b/../../c/", => "/c"
+O(# of "/")
  */
 public class Solution {
     public String simplifyPath(String path) {
