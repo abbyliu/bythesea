@@ -13,7 +13,8 @@ public class Solution {
         return result;
     }
     
-    private void visit(TreeNode root, ArrayList<Integer> result) {
+    @SuppressWarnings("unused")
+	private void visit(TreeNode root, ArrayList<Integer> result) {
     	if (root == null) return;
     	visit(root.left, result);
     	visit(root.right, result);
@@ -45,7 +46,8 @@ public class Solution {
 		}
     }
     
-    private void visitNonRecursive(TreeNode root, ArrayList<Integer> result) {
+    @SuppressWarnings("unused")
+	private void visitNonRecursive(TreeNode root, ArrayList<Integer> result) {
     	if (root == null) return;
     	Stack<TreeNode> nodes = new Stack<>();
     	nodes.add(root);

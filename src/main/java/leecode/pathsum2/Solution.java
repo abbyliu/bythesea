@@ -48,6 +48,7 @@ public class Solution {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	private void findAllPathsNonRecursive(TreeNode root, int sum, List<List<Integer>> result) {
     	Stack<TreeNode> nodes = new Stack<>();
     	Stack<Integer> expected = new Stack<>();

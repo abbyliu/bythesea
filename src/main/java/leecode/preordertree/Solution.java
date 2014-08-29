@@ -3,7 +3,6 @@ package leecode.preordertree;
 import java.util.ArrayList;
 import java.util.Stack;
 
-
 import leecode.postordertree.TreeNode;
 /*
  * Given a binary tree, return the preorder traversal of its nodes' values.
@@ -16,7 +15,8 @@ public class Solution {
       return result;
     }
     
-    private void visit(TreeNode root, ArrayList<Integer> result) {
+    @SuppressWarnings("unused")
+	private void visit(TreeNode root, ArrayList<Integer> result) {
     	if (root == null) return;
     	result.add(root.val);
     	visit(root.left, result);

@@ -21,7 +21,8 @@ public class Solution {
 		Solution s = new Solution();
 		s.longestValidParentheses(ss);
 	}
-    public int longestValidParentheses2(String s) {
+    @SuppressWarnings("unused")
+	public int longestValidParentheses2(String s) {
     	if (s == null || s.length() <=1) return 0;
     	int pastGood = 0;
     	Stack<Integer> pos = new Stack<>();

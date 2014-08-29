@@ -48,6 +48,7 @@ public class Solution {
     	return result;
     }
     
+	@SuppressWarnings("unused")
 	private int findLeafSum(TreeNode root, int start) {
 		if (root.left == null && root.right == null) {
 			return start * 10 + root.val;
