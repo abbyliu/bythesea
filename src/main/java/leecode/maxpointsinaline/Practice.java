@@ -84,7 +84,7 @@ public class Practice {
     	Practice p = new Practice();
     	Point[] points = new Point[] {new Point(2,3), new Point(3,3), new Point(-5,3)};
     	p.maxPoints(points);
-    	System.out.println(Double.hashCode(-0.0));
+/*    	System.out.println(Double.hashCode(-0.0));
     	System.out.println(Double.hashCode(0.0));
-    }
+*/    }
 }
