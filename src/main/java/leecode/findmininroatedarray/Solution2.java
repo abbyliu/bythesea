@@ -12,7 +12,7 @@ public class Solution2 {
             if (num[start] > num[mid]) {
                 end = mid;
             } else {
-                start = start + 1;
+                start = mid + 1;
             }
         }
         return num[start];
