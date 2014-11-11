@@ -11,8 +11,13 @@ public class Solution {
 	
 	 public String reverseWords2(String s) {
 		  if (s == null || s.length() == 0) return s;
+		  
 		  String trimed = s.trim();
-		  if (trimed.length() <= 1) return trimed;
+		  
+		  if (trimed.length() <= 1) {
+			  return trimed;
+		  }
+		  
 		  String[] splits = trimed.split(" ");
 		  StringBuilder builder = new StringBuilder();
 		  int idx  = 0;
@@ -26,8 +31,9 @@ public class Solution {
 		      builder.append(splits[i]);
 		      idx++;
 		  }
+	
 		  return builder.toString();
-		 }
+	}
 	 
     public String reverseWords(String s) {
         if (s == null) {
