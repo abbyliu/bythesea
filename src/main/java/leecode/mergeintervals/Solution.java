@@ -1,5 +1,6 @@
 package leecode.mergeintervals;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -17,6 +18,9 @@ public class Solution {
 	public static void main(String[] args) {
 		CComparator c = new CComparator();
 		System.out.println(c == null);
+		String[] words = {"xyz1", "abc", "df"};
+		Arrays.sort(words, (first, second) -> Integer.compare(first.length(), second.length()));
+		System.out.println(Arrays.toString(words));
 	}
 	static class CComparator implements Comparator<Interval> {
 
