@@ -14,7 +14,11 @@ return [1,6],[8,10],[15,18].
 O(nlogn0
  */
 public class Solution {
-	class CComparator implements Comparator<Interval> {
+	public static void main(String[] args) {
+		CComparator c = new CComparator();
+		System.out.println(c == null);
+	}
+	static class CComparator implements Comparator<Interval> {
 
 		@Override
 		public int compare(Interval o1, Interval o2) {
