@@ -1,7 +1,9 @@
 package leecode.clonegraph;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
 import java.util.Random;
 
 import javax.xml.datatype.DatatypeConfigurationException;
@@ -34,6 +36,10 @@ public class Test {
 
 public static void main(String[] args) throws DatatypeConfigurationException {
 
+	List<Integer> list = new ArrayList<>();
+	for (int i = 0; i < 100; i++) {
+		list.add(null);
+	}
 		long start = System.currentTimeMillis();
 	for (int i = 0; i < 600000; i++) {
 		Random rd = new Random();
