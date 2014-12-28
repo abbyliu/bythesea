@@ -23,7 +23,7 @@ public class T {
 				}
 			}
 		}
-			
+		reader.close();
 		System.out.println("1: " + ones);
 		System.out.println("2: " + twoes);
 	}
