@@ -18,7 +18,7 @@ public class Solution {
     	if (s== null || s.length() == 0) return false;
     	if (s.length() % 2 != 0) return false;
     	Stack<Character> st = new Stack<>();
-    	for (int i = 0; i < s.length() ;i++) {
+    	for (int i = 0; i < s.length(); i++) {
     		char c = s.charAt(i);
     		switch(c) {
     		case '{':
