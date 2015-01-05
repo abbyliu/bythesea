@@ -30,5 +30,9 @@ public class Solution2 {
         return 1 + Math.max(left, right);
     }
     
+    public static void main(String[] args) {
+    	System.out.println(Math.pow(0, 0));
+    }
 
+    
 }
