@@ -20,6 +20,9 @@ public class FindAllFactors {
 				value = value / i;
 			}
 		}
+		if (value != 1) {
+			counts.put(value, 1);
+		}
 		
 		StringBuilder builder = new StringBuilder();
 		Integer[] keys = counts.keySet().toArray(new Integer[0]);
@@ -38,5 +41,6 @@ public class FindAllFactors {
 	
 	public static void main(String[] args) {
 		findAllFactors(1024);
+		findAllFactors(15);
 	}
 }
