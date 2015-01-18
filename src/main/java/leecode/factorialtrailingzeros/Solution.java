@@ -1,5 +1,5 @@
 package leecode.factorialtrailingzeros;
-
+/* Factorial Trailing Zeroes */
 public class Solution {
     public int trailingZeroes(int n) {
         int total = 0;
