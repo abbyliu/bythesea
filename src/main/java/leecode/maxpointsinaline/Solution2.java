@@ -3,6 +3,22 @@ package leecode.maxpointsinaline;
 import java.util.HashMap;
 import java.util.Map;
 
+/*
+ * Max Points on a Line
+ * 
+ * 
+ * 
+ * Key takeaways
+ * 1. HashMap, HashSet need to override both equals as well as hashCode
+ * 2. Be careful comparing double, even for calculating hashCode
+ * 3. Do not miss input validation!!
+ * 4. understand your question first before dive into coding
+ * O(n2)
+ */
+
+/*
+ * Given n points on a 2D plane, find the maximum number of points that lie on the same straight line.
+ */
 public class Solution2 {
     static class Slope {
         double slope;
