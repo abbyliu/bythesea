@@ -2,13 +2,16 @@ package leecode.wordbreak;
 
 import java.util.HashSet;
 import java.util.Set;
-/*
+/* Word Break
  * O(s.length2)
  */
 public class Solution {
 	
-	public boolean wordBreak3(String s, Set<String> dict) {
-	    if (s == null || dict.isEmpty()) return false;
+	public boolean wordBreak(String s, Set<String> dict) {
+	    if (s == null || dict.isEmpty()) {
+	    	return false;
+	    }
+	    
 	    boolean[] match = new boolean[s.length()];
 	    for (int i = 0; i < s.length(); i++) {
 	        String ss = s.substring(0, i+1);
@@ -27,54 +30,25 @@ public class Solution {
 	    return match[s.length()-1];
 	}
 	
-	private Set<String> goodWord = new HashSet<>();
-	private Set<String> badWord = new HashSet<>();
-
 	public boolean wordBreak2(String s, Set<String> dict) {
-		// IMPORTANT: Please reset any member data you declared, as
-		// the same Solution instance will be reused for each test case.
-		boolean[] dp = new boolean[s.length() + 1];
-		dp[0] = true;
-		for (int i = 0; i < s.length(); i++) {
-			for (int len = i + 1; len <= s.length(); len++) {
-				if (dp[i] &&dict.contains(s.substring(i, len))) {
-					dp[len] = true;
-				}
-			}
-		}
-		return dp[s.length()]; 
-	}
+	    if (s == null || s.length() == 0 || dict.isEmpty()) {
+	        return false;
+	    }
+	    boolean[] dp = new boolean[s.length()];
+	    for (int i = 0; i < s.length(); i++) {
+	        for (int j = 0; j <= i; j++) {
+	            String string = s.substring(j, i+1);
+	            if (dict.contains(string) && (j==0 || dp[j-1])) {
+	                dp[i] = true;
+	                break;
+	            }
+	        }
+	    }
+	    
+	    return dp[s.length()-1];
 
-	public boolean wordBreak(String s, Set<String> dict) {
-		if (s == null || s.trim().length() == 0 || dict.size() == 0)
-			return false;
-		if (goodWord.contains(s))
-			return true;
-		if (badWord.contains(s))
-			return false;
-		for (String d : dict) {
-			if (d.equals(s)) {
-				goodWord.add(s);
-				return true;
-			}
-			int idx = s.indexOf(d);
-			if (idx >= 0) {
-				String left = s.substring(0, idx);
-				String right = s.substring(idx + d.length());
-				boolean result = (left.length() == 0 || wordBreak(left, dict))
-						&& (right.length() == 0 || wordBreak(right, dict));
-				if (result) {
-					goodWord.add(s);
-					goodWord.add(left);
-					goodWord.add(right);
-					return true;
-				}
-			}
-		}
-		badWord.add(s);
-		return false;
 	}
-
+	
 	public static void main(String[] args) {
 		// String s = "fohhemkkaecojceoaejkkoedkofhmohkcjmkggcmnami";
 		// String[] dict = new String []
@@ -86,7 +60,5 @@ public class Solution {
 		for (String ss : dict) {
 			set.add(ss);
 		}
-		boolean b = new Solution().wordBreak2(s, set);
-		System.out.println(b);
 	}
 }

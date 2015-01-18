@@ -3,10 +3,9 @@ package leecode.wordbreak2;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
-/*
+/* Word Break II
  *  Given a string s and a dictionary of words dict, add spaces in s to construct a sentence where each word is a valid dictionary word.
 
 Return all such possible sentences.
@@ -66,69 +65,6 @@ public class Solution {
 	        }
 	    }
 	
-	
-	public ArrayList<String> wordBreak(String s, Set<String> dict) {
-        // Note: The Solution object is instantiated only once and is reused by each test case.
-        ArrayList<String > result=new ArrayList<String>();
-        LinkedList<String> segment=new LinkedList<String>();
-        boolean [][] table=new boolean[s.length()][s.length()];
-        wordBreak(table, s, dict);//this is initial the table
-        if(!table[0][s.length()-1]){
-            return result;
-        }
-        recurseAdd(0,s,result, segment, table, dict);
-        return result;
-    }
-
-    public void recurseAdd(int start,String input,ArrayList<String> result, LinkedList<String> forNow,boolean table[][],Set<String> dict){
-        if(start==input.length()){
-            String newOne="";
-            for(int i=forNow.size()-1;i>=0;i--){
-                newOne+=forNow.get(i)+" ";
-            }
-            result.add(newOne.trim());
-            return;
-        }
-        for(int i=1+start;i<=input.length();i++){
-            if(dict.contains(input.substring(start,i))){//valid
-                if(i<input.length()){
-                    if(table[i][input.length()-1]){
-                        forNow.push(input.substring(start,i)); //push shi segment into stack;
-                        recurseAdd(i, input, result, forNow, table, dict);
-                        forNow.pop();
-                    }
-                }
-                else{
-                    forNow.push(input.substring(start,i)); //push shi segment into stack;
-                    recurseAdd(i, input, result, forNow, table, dict);
-                    forNow.pop();
-                }
-
-            }
-        }
-
-    }
-
-    public void wordBreak(boolean [][] dp, String s, Set<String> dict) { //fill the table to judge any substring if it could be broke or not
-        // Note: The Solution object is instantiated only once and is reused by each test case.
-        for (int i = 0; i < s.length(); i++) 
-            dp[i][i]=dict.contains(s.substring(i,i+1));
-        for(int i=1;i<s.length();i++){
-            for(int j=0;j<s.length()-i;j++){
-                //boolean[j][j+i]
-                if(dict.contains(s.substring(j,j+i+1)))
-                    dp[j][j+i]=true;
-                else{
-                    for(int k=j;k<j+i;k++){
-                        if(dp[j][k]&&dp[k+1][j+i]){
-                            dp[j][j+i]=true;
-                            break;
-                        }
-                    }
-                }
-            }
-        }
-    }
 	
 	
 	public static void main(String[] args) {
