@@ -1,5 +1,6 @@
 package leecode.intersectoftwolist;
 
+/* Intersection of Two Linked Lists */
 public class Solution {
 	
 	static class ListNode {
@@ -42,6 +43,7 @@ public class Solution {
             longer = longer.next;
             shorter = shorter.next;
         }
+        
         return longer;
     }
 }
