@@ -1,48 +1,13 @@
 package leecode.minstack;
 
-import java.util.Stack;
+import java.util.Deque;
+import java.util.LinkedList;
 
+// v3
 public class Solution3 {
-	class MinStack {
-	    private Stack<Long> data = new Stack<>();
-	    private long min;
-	    
-	    public void push(int x) {
-	    	if (data.isEmpty()) {
-	    		data.push(0L);
-	    		min = x;
-	    	} else {
-    			data.push(x - min);
-	    		if ( x < min) {
-	    			min = x;
-	    		}
-	    	}
-	    }
-
-	    public void pop() {
-	        long value = data.pop();
-	        if (value < 0) {
-	        	min = min - value;
-	        }
-	    }
-
-	    public int top() {
-	    	long value = data.peek();
-	    	if (value > 0) {
-	    		return (int)(value + min);
-	    	} else {
-	    		return (int)min;
-	    	}
-	    }
-
-	    public int getMin() {
-	        return (int) min;
-	    }
-	}
-	
-	class MinStack2 {
-		  private Stack<Integer> data = new Stack<>();
-		  private Stack<Integer> min = new Stack<>();
+	static class MinStack3 {
+		  private Deque<Integer> data = new LinkedList<>();
+		  private Deque<Integer> min = new LinkedList<>();
 		  
 		  public void push(int x) {
 		     data.push(x);
@@ -57,6 +22,7 @@ public class Solution3 {
 		          min.pop();
 		      }
 		  }
+		  
 		  public int top() {
 		      return data.peek();
 		  }
@@ -64,6 +30,16 @@ public class Solution3 {
 		  public int getMin() {
 		      return min.peek();
 		  }
-		}
-
+	}
+	
+	public static void main(String[] args) {
+		MinStack3 stack = new MinStack3();
+	 	stack.push(-2);
+	 	stack.push(0);
+	 	stack.push(-1);
+	 	System.out.println(stack.getMin());
+	 	System.out.println(stack.top());
+	 	stack.pop();
+	 	System.out.println(stack.getMin());
+	}
 }

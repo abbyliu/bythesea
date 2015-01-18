@@ -2,6 +2,7 @@ package leecode.maximumgap;
 
 import java.util.Arrays;
 
+/* Maximum Gap */
 public class Solution {
     public int maximumGap(int[] num) {
        if (num == null || num.length < 2)
@@ -9,9 +10,13 @@ public class Solution {
        // get the max and min value of the array
        int min = num[0];
        int max = num[0];
-       for (int i:num) {
-           min = Math.min(min, i);
-           max = Math.max(max, i);
+       
+       for (int i = 1; i < num.length ; i++) {
+    	   if (num[i] > max) {
+    		   max = num[i];
+    	   } else if (num[i] < min) {
+    		   min = num[i];
+    	   }
        }
        // the minimum possibale gap, ceiling of the integer division
        int gap = (int)Math.ceil((double)(max - min)/(num.length - 1));
@@ -21,8 +26,9 @@ public class Solution {
        Arrays.fill(bucketsMAX, Integer.MIN_VALUE);
        // put numbers into buckets
        for (int i:num) {
-           if (i == min || i == max)
+           if (i == min || i == max) {
                continue;
+           }
            int idx = (i - min) / gap; // index of the right position in the buckets
            bucketsMIN[idx] = Math.min(i, bucketsMIN[idx]);
            bucketsMAX[idx] = Math.max(i, bucketsMAX[idx]);
@@ -31,16 +37,23 @@ public class Solution {
        int maxGap = Integer.MIN_VALUE;
        int previous = min;
        for (int i = 0; i < num.length - 1; i++) {
-           if (bucketsMIN[i] == Integer.MAX_VALUE && bucketsMAX[i] == Integer.MIN_VALUE)
+           if (bucketsMIN[i] == Integer.MAX_VALUE && bucketsMAX[i] == Integer.MIN_VALUE) {
                // empty bucket
                continue;
+           }
            // min value minus the previous value is the current gap
            maxGap = Math.max(maxGap, bucketsMIN[i] - previous);
            // update previous bucket value
            previous = bucketsMAX[i];
        }
        maxGap = Math.max(maxGap, max - previous); // updata the final max value gap
+       
        return maxGap;
    }
 
+    public static void main(String[] args) {
+    	Solution solution = new Solution();
+    	
+    	System.out.println(solution.maximumGap(new int[] {1,10000000}));
+    }
 }

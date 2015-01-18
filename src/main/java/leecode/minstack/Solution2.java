@@ -2,6 +2,7 @@ package leecode.minstack;
 
 import java.util.Stack;
 
+// v2
 public class Solution2 {
 	private Stack<Long> data = new Stack<>();
 	private long min;

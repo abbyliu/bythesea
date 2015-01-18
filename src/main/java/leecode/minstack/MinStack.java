@@ -2,6 +2,8 @@ package leecode.minstack;
 
 import java.util.Stack;
 
+/* Min Stack */
+// v1
 public class MinStack {
     static class Mark {
         private int value;
@@ -11,6 +13,7 @@ public class MinStack {
             count = c;
         }
     }
+    
     private Stack<Integer> data = new Stack<>();
     private Stack<Mark> min = new Stack<>();
     
