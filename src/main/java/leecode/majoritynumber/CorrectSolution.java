@@ -1,11 +1,21 @@
 package leecode.majoritynumber;
 
+/* Majority Element */
 public class CorrectSolution {
 	   public int majorityElement(int[] num) {
-	        int major = 0, count = 0;
+	        int major = 0;
+	        int count = 0;
+	        
 	        for (int e : num) {
-	            major = (count == 0) ? e : major;
-	            count += (e == major) ? 1 : -1;
+	        	if (count == 0) {
+	        		major = e;
+	        	}
+	        	
+	        	if (e == major) {
+	        		count++;
+	        	} else {
+	        		count--;
+	        	}
 	        }
 	        return major;
 	    } //voting algo
