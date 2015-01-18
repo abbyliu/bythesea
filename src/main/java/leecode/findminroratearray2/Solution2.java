@@ -1,6 +1,7 @@
 package leecode.findminroratearray2;
 
-/*
+/* Find Minimum in Rotated Sorted Array II
+ * 
  * as long as left >= right, that mean the array is rotated
  */
 public class Solution2 {
