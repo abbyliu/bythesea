@@ -15,6 +15,11 @@ import leecode.postordertree.TreeNode;
  *     TreeNode(int x) { val = x; }
  * }
  */
+
+/* Binary Tree Preorder Traversal
+ * Given a binary tree, return the preorder traversal of its nodes' values.
+ * O(N)
+ */
 public class Solution2 {
     public ArrayList<Integer> preorderTraversal(TreeNode root) {
         if (root == null) return new ArrayList<Integer>();

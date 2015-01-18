@@ -2,7 +2,7 @@ package leecode.linkedlistcycle2;
 
 import leecode.sortedlisttobst.ListNode;
 
-/**
+/** Linked List Cycle II
  * Definition for singly-linked list.
  * class ListNode {
  *     int val;
@@ -15,20 +15,27 @@ import leecode.sortedlisttobst.ListNode;
  */
 public class Solution {
 	public ListNode detectCycle(ListNode head) {
-	    if (head == null || head.next == null || head.next.next == null) return null;
-	    ListNode slow = head.next;
-	    ListNode fast = head.next.next;
-	    while (slow != fast && fast.next != null && fast.next.next != null) {
-	        slow = slow.next;
-	        fast = fast.next.next;
+	    if (head == null ||head.next == null) {
+	        return null;
 	    }
 	    
-	    if (slow != fast) return null;
-	    slow = head;
-	    while (slow != fast) {
-	        slow = slow.next;
-	        fast = fast.next;
+	    ListNode slower = head.next;
+	    ListNode faster = head.next.next;
+	    while (slower != faster && faster!= null && faster.next != null) {
+	        slower = slower.next;
+	        faster = faster.next.next;
 	    }
-	    return slow;
+	    
+	    if (slower != faster) {
+	        return null;
+	    }
+	    
+	    slower = head;
+	    while (slower != faster) {
+	        slower = slower.next;
+	        faster = faster.next;
+	    }
+	    
+	    return slower;
 	}
 }
