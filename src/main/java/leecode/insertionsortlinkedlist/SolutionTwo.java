@@ -1,5 +1,14 @@
 package leecode.insertionsortlinkedlist;
 
+
+/* Insertion Sort List
+ * Key takeaways
+ * 1. Adding a dummy node for insertion simplify things
+ * Sort a linked list using insertion sort.
+ * 
+ * O(n2)
+ */
+
 /*
  * Did not create a new linked list, working on existing one.
  * Key takeaways:
@@ -22,11 +31,7 @@ public class SolutionTwo {
          	   current = current.next;
      	   } else {
      		   ListNode nNode = current.next;
-     		   if (preCurrent == dummy) {
-     			  preCurrent.next.next = nNode; 
-     		   } else {
-     			   preCurrent.next = nNode;
-     		   }
+   			   preCurrent.next = nNode;
      		   ListNode next = pre.next;
      		   pre.next = current;
      		   current.next = next;
@@ -36,31 +41,6 @@ public class SolutionTwo {
         return dummy.next;
      }
     
-    public ListNode insertionSortList2(ListNode head) {
-        if (head == null ||head.next == null) return head;
-        ListNode dummy = new ListNode(1);
-        dummy.next = head;
-        ListNode current = head.next;
-        ListNode pre = head;
-        while (current != null) {
-            ListNode start = dummy;
-            while (start.next.val <= current.val && start.next != current) {
-                start= start.next;
-            }
-            if (start.next != current) {
-              ListNode save = current.next;
-              current.next = start.next;
-              start.next = current;
-              current = save;
-              pre.next = current;
-            } else {
-                pre = current;
-                current = current.next;
-            }
-            
-        }
-        return dummy.next;
-    }
     public static void main(String[] args) {
     	ListNode n1 = new ListNode(3);
     	ListNode n2 = new ListNode(2);

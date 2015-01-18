@@ -3,7 +3,8 @@ package leecode.lrucache;
 import java.util.HashMap;
 import java.util.Map;
 
-/*
+/* LRU Cache
+ * 
  * Key takeaways:
  * 1. When move a node from the chain, has to remember not only add itself,
  * but also take care its original pre and next
