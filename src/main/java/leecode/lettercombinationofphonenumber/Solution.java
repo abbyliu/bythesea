@@ -2,7 +2,7 @@ package leecode.lettercombinationofphonenumber;
 
 import java.util.ArrayList;
 import java.util.List;
-/*
+/* Letter Combinations of a Phone Number
  * Given a digit string, return all possible letter combinations that the number could represent.
  * O(3*3*3*3....*4) 
  */
@@ -15,71 +15,45 @@ public class Solution {
 		// TODO Auto-generated method stub
 
 	}
-	
-	public List<String> letterCombinations2(String digits) {
-		List<String> result = new ArrayList<>();
-		if (digits== null || digits.length() == 0) {
-			result.add("");
-			return result;
-		}
-		result.addAll(getStrings(digits.charAt(digits.length()-1)));
-		for (int i = digits.length()-2; i>=0; i--) {
-			char ch = digits.charAt(i);
-			List<String> strs = getStrings(ch);
-			List<String> tpp = new ArrayList<>();
-			for (String str: strs) {
-				for (String tp: result) {
-					tpp.add(str+ tp);
-				}
-			}
-			result = tpp;
-		}
-		return result;
-	}
 	public List<String> letterCombinations(String digits) {
-		List<String> result = new ArrayList<>();
-		if (digits == null || digits.length() == 0) {
-			result.add("");
-			return result;
-		}
-		result = getResult(digits, 0);
-		return result;
+	    List<String> result = new ArrayList<>();
+	    result.add("");
+	    if (digits == null || digits.length() == 0) return result;
+	    List<String> tmp = new ArrayList<>();
+	    for (int i = 0; i < digits.length(); i++ ) {
+	        char c = digits.charAt(i);
+	        List<Character> chars = getChars(c);
+	        for (String s : result) {
+	            for (Character cc: chars) {
+	                tmp.add(s+cc);
+	            }
+	        }
+	        result = tmp;
+	        tmp = new ArrayList<>();
+	    }
+	    return result;
 	}
-	private List<String> getResult(String digits, int i) {
-		if (i == digits.length()-1) {
-			return getStrings(digits.charAt(i));
-		}
-		List<String> ss = getResult(digits, i+1);
-		List<String> sn = getStrings(digits.charAt(i));
-		List<String> ret = new ArrayList<>();
-		for (String sn1: sn) {
-			for (String sss: ss) {
-				ret.add(sn1+sss);
-			}
-		}
-		return ret;
-	}
-	private List<String> getStrings(char charAt) {
-		List<String> result = new ArrayList<>();
-		switch (charAt) {
-		case '2':
-			result.add("a");result.add("b");result.add("c");break;
-		case '3':
-			result.add("d");result.add("e");result.add("f");break;
-		case '4':
-			result.add("g");result.add("h");result.add("i");break;
-		case '5':
-			result.add("j");result.add("k");result.add("l");break;
-		case '6':
-			result.add("m");result.add("n");result.add("o");break;
-		case '7':
-			result.add("p");result.add("q");result.add("r");result.add("s");break;
-		case '8':
-			result.add("t");result.add("u");result.add("v");break;
-		case '9':
-			result.add("w");result.add("x");result.add("y");result.add("z");break;
-
-		}
-		return result;
-	}
+	List<Character> getChars(char c) {
+	    List<Character> chars = new ArrayList<>();
+	    if (c == '0') {
+	        chars.add(' ');
+	    } else if (c == '2') {
+	        chars.add('a');chars.add('b');chars.add('c');
+	    } else if (c == '3') {
+	        chars.add('d');chars.add('e');chars.add('f');
+	    } else if (c == '4') {
+	        chars.add('g');chars.add('h');chars.add('i');
+	    } else if (c == '5') {
+	        chars.add('j');chars.add('k');chars.add('l');
+	    } else if (c == '6') {
+	        chars.add('m');chars.add('n');chars.add('o');
+	    } else if (c == '7') {
+	        chars.add('p');chars.add('q');chars.add('r');chars.add('s');
+	    } else if (c == '8') {
+	        chars.add('t');chars.add('u');chars.add('v');
+	    } else if (c == '9') {
+	        chars.add('w');chars.add('x');chars.add('y');chars.add('z');
+	    }
+	    return chars;
+	}	
 }
