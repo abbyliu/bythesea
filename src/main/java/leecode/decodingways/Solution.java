@@ -1,5 +1,5 @@
 package leecode.decodingways;
-/*
+/*  Decode Ways
  *  A message containing letters from A-Z is being encoded to numbers using the following mapping:
 
 'A' -> 1
@@ -12,34 +12,6 @@ O(s.length()) , O(s.length())
  */
 public class Solution {
 	
-	private boolean isValidTwoDigits(char c1, char c2) {
-		return c1 == '1' || (c1 == '2' && c2 <= '6');
-	}
-	private boolean isValidDigit(char c1) {
-		return c1 >= '1' && c1 <= '9';
-	}
-	public int numDecodings2(String s) {
-		if (s == null || s.length() == 0) return 0;
-		int[] ways = new int[s.length()+1];
-		ways[0] = 1; ways[1] = isValidDigit(s.charAt(0))? 1:0;
-		for (int i = 2; i < s.length(); i++) {
-			char c2 = s.charAt(i);
-			char c1 = s.charAt(i-1);
-			if (isValidDigit(c2)) {
-				ways[i] = ways[i-1];
-				if (isValidTwoDigits(c1, c2)) {
-					ways[i] += ways[i-2];
-				}
-			} else {
-				if (isValidTwoDigits(c1,c2)) {
-					ways[i] = ways[i-2];
-				} else {
-					ways[i] = 0;
-				}
-			}
-		}
-		return ways[s.length()];
-	}
     public int numDecodings(String s) {
     	if (s == null || s.length() <1) return 0;
     	

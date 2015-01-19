@@ -21,7 +21,8 @@ public class Solution2 {
             while (value >0) {
                 if ((value & 1) >0) {
                     if (idx > 0 && !used[idx-1] && num[idx-1] == num[idx]) {
-                        skipped = true;break;
+                        skipped = true;
+                        break;
                     } else {
                         rett.add(num[idx]);
                         used[idx] = true;

@@ -3,7 +3,7 @@ package leecode.greycode;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/*
+/* Gray Code
  * The gray code is a binary numeral system where two successive values differ in only one bit.
 
 Given a non-negative integer n representing the total number of bits in the code, print the sequence of gray code. A gray code sequence must begin with 0.
@@ -21,9 +21,9 @@ O(n expo)
 public class Solution {
 	public static void main(String[] args) {
 		Solution s = new Solution();
-		s.grayCode2(3);
+		s.grayCode(3);
 	}
-	public List<Integer> grayCode3(int n) {
+	public List<Integer> grayCode(int n) {
 		if (n < 0) return Collections.emptyList();
 		List<Integer> result = new ArrayList<>();
 		result.add(0);
@@ -37,31 +37,5 @@ public class Solution {
 		}
 		return result;
 	}
-    public List<Integer> grayCode(int n) {
-    	if (n == 0) {
-    		List<Integer> result = new ArrayList<>();
-    		result.add(0);
-    		return result;
-    	}
-    	List<Integer> result = grayCode(n-1);
-    	int add = 1 << (n-1);
-    	List<Integer> tmp = new ArrayList<>(result);
-    	for (int i = result.size() -1 ; i>=0; i--) {
-    		tmp.add(add + result.get(i));
-    	}
-    	return tmp;
-    }
-    
-    public List<Integer> grayCode2(int n) {
-    	List<Integer> result = new ArrayList<>();
-    	result.add(0);
-    	for (int i = 0; i < n; i++ ) {
-    		int move = 1 << i;
-    		for (int j = result.size() -1; j>=0; j--) {
-    			result.add(move + result.get(j));
-    		}
-    	}
-    	return result;
-    } 
 
 }

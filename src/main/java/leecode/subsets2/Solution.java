@@ -1,12 +1,11 @@
 package leecode.subsets2;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-/*
+/*  Subsets II
  *  Given a collection of integers that might contain duplicates, S, return all possible subsets.
 
 Note:
@@ -28,40 +27,6 @@ If S = [1,2,2], a solution is:
 O(exp)
  */
 public class Solution {
-    public List<List<Integer>> subsetsWithDup2(int[] num) {
-    	List<List<Integer>> result = new ArrayList<>();
-    	
-    	if (num == null || num.length == 0) {
-    		return result;
-    	}
-    	Arrays.sort(num);
-    	int loop = 1 << num.length;
-    	for (int i = 0; i < loop; i++) {
-    		List<Integer> is = new ArrayList<>();
-    		int idx = i;
-    		int start = 0;
-    		boolean ignore = false;
-        	boolean[] used = new boolean[num.length];
-    		while (idx != 0) {
-    			int comp = idx & 1;
-    			if (comp != 0) {
-    				if (start > 0 && !used[start-1] && num[start-1] == num[start]) {
-    					ignore = true;
-    					break;
-    				}
-    				used[start] = true;
-    				is.add(num[start]);
-    			}
-    			start++;
-    			idx = idx >> 1;
-    		}
-    		if (!ignore) {
-    			result.add(is);
-    		}
-    	}
-		return result;
-    }
-    
     public List<List<Integer>> subsetsWithDup(int[] num) {
     	Set<List<Integer>> sets = new HashSet<>();
     	
