@@ -1,9 +1,9 @@
 package leecode.subsets;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.List;
-/*
+/*  Subsets
  *  Given a set of distinct integers, S, return all possible subsets.
 
 Note:
@@ -20,6 +20,7 @@ public class Solution {
         List<List<Integer>> result = new ArrayList<>();
         if (S == null || S.length == 0) return result;
         int loop = 1 << S.length;
+        Arrays.sort(S);
         for (int i = 0; i < loop ;i++) {
         	List<Integer> iresult = new ArrayList<>();
         	int idx = i;
@@ -31,7 +32,6 @@ public class Solution {
         		index++;
         		idx = idx >> 1;
         	}
-        	Collections.sort(iresult);
         	result.add(iresult);
         }
         return result;
