@@ -13,7 +13,7 @@ public class Solution {
 		Solution s = new Solution();
 		int[] A = new int[1];
 		int[] B = {1};
-		s.merge2(A, 0, B, 1);
+		s.merge(A, 0, B, 1);
 	}
     public void merge(int A[], int m, int B[], int n) {
     	if (A == null || B == null) return;
@@ -31,22 +31,5 @@ public class Solution {
     	while (j>=0) {
     		A[k--] = B[j--];
     	}
-    }
-    
-    public void merge2(int A[], int m, int B[], int n) {
-        if (A == null || B== null) return;
-        int start = m+n-1;
-        int a = m-1;
-        int b = n-1;
-        while ( a >=0 && b>=0) {
-            if (A[a] > B[b]) {
-                A[start--] = A[a--];
-            } else {
-                A[start--] = B[b--];
-            }
-        }
-        while (b>=0) {
-            A[start--] = B[b--];
-        }
     }
 }
