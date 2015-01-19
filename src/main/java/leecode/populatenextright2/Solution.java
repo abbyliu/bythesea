@@ -7,7 +7,7 @@ What if the given tree could be any binary tree? Would your previous solution st
 O(n)
  */
 import leecode.populatenextright.TreeLinkNode;
-
+/* Populating Next Right Pointers in Each Node II */
 public class Solution {
     public void connect(TreeLinkNode root) {
         TreeLinkNode leftWall = root;
@@ -20,35 +20,29 @@ public class Solution {
             	if (across.left != null) {
             		if (toLink!= null)	{
             			toLink.next = across.left;
-            			toLink = null;
+            			toLink = across.left;
+            		} else {
+            		    toLink = across.left;
             		}
             		if (nextLevelFirstNode == null) {
             			nextLevelFirstNode = across.left;
-            		}
-            	} else if (across.right != null) {
+            		} 
+            	} 
+            	if (across.right != null) {
             		if (toLink != null) {
             			toLink.next = across.right;
-            			toLink = null;
+            			toLink = across.right;
+            		} else {
+            		    toLink = across.right;
             		}
             		if (nextLevelFirstNode == null) {
             			nextLevelFirstNode = across.right;
             		}
             	}
-                if (across.left != null && across.right != null) {
-                    across.left.next = across.right;
-                    toLink = across.right;
-                }
-                if (across.left != null && across.right == null) {
-                	toLink = across.left;
-                }
-                if (across.left == null && across.right != null) {
-                	toLink = across.right;
-                }
-                
                 across = across.next;
             }
             leftWall = nextLevelFirstNode;
         }
        
-    }
-}
+    }       
+ }

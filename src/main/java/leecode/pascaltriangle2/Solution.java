@@ -1,8 +1,9 @@
 package leecode.pascaltriangle2;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-/*
+/* Pascal's Triangle II
  * Given an index k, return the kth row of the Pascal's triangle.
 
 For example, given k = 3,
@@ -14,15 +15,21 @@ O(n2)
  */
 public class Solution {
     public List<Integer> getRow(int rowIndex) {
-    	Integer[] result = new Integer[rowIndex+1];
-    	for (int i = 0; i < result.length;i++) {
-    		result[i] = 1;
-    	}
-    	for (int i = 0; i <= rowIndex; i++) {
-    		for (int j = i-1; j >=1;j--) {
-    			result[j] = result[j-1] + result[j];
-    		}
-    	}
-    	return Arrays.asList(result);
+        if (rowIndex < 0) {
+            return Collections.emptyList();
+        }
+        
+        List<Integer> output = new ArrayList<>(rowIndex+1);
+        for (int i = 0; i < rowIndex+1; i++) {
+            output.add(1);
+        }
+        for (int i = 0 ; i < rowIndex -1; i++) {
+            for (int j = i+1; j>=1;j--) {
+                int v = output.get(j) + output.get(j-1);
+                output.set(j, v);
+            }
+        }
+        
+        return output;
     }
 }

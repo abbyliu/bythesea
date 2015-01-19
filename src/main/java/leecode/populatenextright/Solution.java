@@ -1,5 +1,5 @@
 package leecode.populatenextright;
-/*
+/*  Populating Next Right Pointers in Each Node
  *  Given a binary tree
 
     struct TreeLinkNode {
@@ -14,23 +14,6 @@ Initially, all next pointers are set to NULL.
 O(n)
  */
 public class Solution {
-	public void connect2(TreeLinkNode root) {
-		if (root == null) return;
-		
-		TreeLinkNode left = root;
-		while (left != null) {
-			TreeLinkNode cross = left;
-			while (cross!=null) {
-				cross.left.next = cross.right;
-				if (cross.right != null && cross.next != null) {
-					cross.right.next = cross.next.left;
-				}
-				cross = cross.next;
-			}
-			left = left.left;
-		}
-		
-	}
     public void connect(TreeLinkNode root) {
 
         TreeLinkNode leftWall = root;
