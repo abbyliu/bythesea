@@ -3,7 +3,7 @@ package leecode.clonegraph;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
+/** Clone Graph
  * Definition for undirected graph.
  * class UndirectedGraphNode {
  *     int label;

@@ -1,6 +1,6 @@
 package leecode.singlenumber2;
 
-/*
+/*  Single Number II
  *  Given an array of integers, every element appears three times except for one. Find that single one.
 
 Note:
@@ -20,15 +20,4 @@ public class Solution {
 	    return ones;
 	}
 	
-	public int singleNumber2(int[] A) {
-		int ones = 0; int twos = 0; int threes = 0;
-		for (int i = 0; i < A.length; i++) {
-			twos = twos | (ones & A[i]);
-			ones  = ones ^ A[i];
-			threes = ones & twos;
-			ones = ones & ~threes;
-			twos = twos & ~threes;
-		}
-		return ones;
-	}
 }
