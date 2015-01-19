@@ -1,6 +1,6 @@
 package leecode.validsudoku;
 
-/*
+/* Valid Sudoku
  * Determine if a Sudoku is valid, according to: Sudoku Puzzles - The Rules.
  */
 public class Solution {
