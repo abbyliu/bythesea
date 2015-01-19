@@ -1,10 +1,10 @@
 package leecode.ladder1;
 
+import java.util.Deque;
 import java.util.HashSet;
 import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Set;
-/*
+/* Word Ladder
  * Given two words (start and end), and a dictionary, find the length of shortest transformation sequence from start to end, such that:
 
 Only one letter can be changed at a time
@@ -34,79 +34,49 @@ public class Solution {
 		dict.add("hot");
 		dict.add("dog");
 		dict.add("dot");
-		s.ladderLength2("hot", "dog", dict);
-	}
-	public int ladderLength2(String start, String end, Set<String> dict) {
-		if (dict.size() ==0) return 0;
-		Queue<String> wordq = new LinkedList<>();
-		Queue<String> tmp = new LinkedList<>();
-		int dis = 1;
-		wordq.offer(start);
-		
-		while (!wordq.isEmpty()) {
-			String s = wordq.poll();
-			if (s.equals(end)) return dis;
-
-			char[] chars = s.toCharArray();
-			for (int i = 0; i < s.length(); i++) {
-				for (char j= 'a';j <='z';j++) {
-					if (j != chars[i]) {
-						char old = chars[i];
-						chars[i] = j;
-						String s1= new String(chars);
-						if (dict.contains(s1)) {
-							tmp.offer(s1);
-							dict.remove(s1);
-						}
-						chars[i] = old;
-					}
-				}
-			}
-			dict.remove(s);
-			if (wordq.isEmpty()) {
-				wordq = tmp;
-				tmp = new LinkedList<>();
-				dis++;
-			}
-		}
-		return 0;
-	}
-	public int ladderLength(String start, String end, Set<String> dict) {
-		if (dict.size() == 0)
-			return 0;
-
-		LinkedList<String> wordq = new LinkedList<String>();
-		LinkedList<Integer> dq = new LinkedList<Integer>();
-
-		wordq.add(start);
-		dq.add(1);
-
-		int result = 0;
-		while (!wordq.isEmpty()) {
-			String s = wordq.pop();
-			Integer d = dq.pop();
-
-			if (s.equals(end)) {
-				result = d;
-				break;
-			}
-
-			for (int i = 0; i < s.length(); i++) { //
-				char[] arr = s.toCharArray();
-				for (char c = 'a'; c <= 'z'; c++) {
-					arr[i] = c;
-
-					String test = new String(arr);
-					if (dict.contains(test)) {
-						wordq.add(test);
-						dq.add(d + 1);
-						dict.remove(test);
-					}
-				}
-			}
-		}
-
-		return result;
+		s.ladderLength("hot", "dog", dict);
 	}
 
+    public int ladderLength(String start, String end, Set<String> dict) {
+        if (start == null || end == null) {
+            return 0;
+        } else if (start.equals(end)) {
+            return 1;
+        }
+        
+        Deque<String> queue = new LinkedList<>();
+        queue.offer(start);
+        Deque<String> temp = new LinkedList<>();
+        int dist = 1;
+        while (!queue.isEmpty()) {
+            String s = queue.poll();
+            if (s.equals(end)) {
+                return dist;
+            }
+            char[] chars = s.toCharArray();
+            for (int i = 0; i < s.length(); i++) {
+                char old = s.charAt(i);
+                for (char c = 'a'; c <='z'; c++) {
+                    if (c != old) {
+                        chars[i] = c;
+                        String newString = new String(chars);
+                        if (dict.contains(newString)) {
+                            temp.add(newString);
+                            dict.remove(newString);
+                        }
+                    }
+                }
+                chars[i] = old;
+            }
+            dict.remove(s);
+            
+            if (queue.isEmpty()) {
+                queue = temp;
+                temp = new LinkedList<>();
+                dist++;
+            }
+        }
+        
+        return 0;
+    }
 }

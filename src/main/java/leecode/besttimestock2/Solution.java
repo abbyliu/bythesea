@@ -1,5 +1,5 @@
 package leecode.besttimestock2;
-/*
+/* Best Time to Buy and Sell Stock II
  * Say you have an array for which the ith element is the price of a given stock on day i.
 
 Design an algorithm to find the maximum profit. 
@@ -14,34 +14,12 @@ public class Solution {
 	public int maxProfit(int[] prices) {
 		int total = 0;
 		for (int i = 0; i < prices.length - 1; i++) {
-			if (prices[i + 1] > prices[i])
+			if (prices[i + 1] > prices[i]){
 				total += prices[i + 1] - prices[i];
+			}
 		}
 
 		return total;
 	}
 	
-	public int maxProfit2(int[] prices) {
-		if (prices == null ||  prices.length <=1) return 0;
-		int total = 0;
-		int previousSmall  = 0;
-		boolean increase = true;
-		for (int i =1 ;i < prices.length; i++) {
-			if (prices[i] < prices[i-1]) {
-				if (increase) {
-					total += (prices[i-1] - prices[previousSmall]);
-					increase = false;
-				} 
-			} else if (prices[i] > prices[i-1]){
-				if (!increase) {
-					increase = true;
-					previousSmall = i-1;
-				}
-			}
-		}
-		if (increase) {
-			total+= (prices[prices.length-1] - prices[previousSmall]);
-		}
-		return total;
-	}
 }
