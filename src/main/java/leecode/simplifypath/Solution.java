@@ -1,7 +1,7 @@
 package leecode.simplifypath;
 
 import java.util.Stack;
-/*
+/* Simplify Path
  * Given an absolute path for a file (Unix-style), simplify it.
 
 For example,
