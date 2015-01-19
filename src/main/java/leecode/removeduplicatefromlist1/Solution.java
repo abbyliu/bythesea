@@ -1,7 +1,7 @@
 package leecode.removeduplicatefromlist1;
 
 import leecode.sortedlisttobst.ListNode;
-/*
+/*  Remove Duplicates from Sorted List
  *  Given a sorted linked list, delete all duplicates such that each element appear only once.
 
 For example,
@@ -25,5 +25,18 @@ public class Solution {
     		}
     	}
     	return head;
+    }
+    
+    public ListNode deleteDuplicates2(ListNode head) {
+        if (head == null || head.next == null) return head;
+        ListNode start = head;
+        while (start != null) {
+            if (start.next != null && start.next.val == start.val) {
+                start.next = start.next.next;
+            } else {
+                start = start.next;
+            }
+        }
+        return head;
     }
 }

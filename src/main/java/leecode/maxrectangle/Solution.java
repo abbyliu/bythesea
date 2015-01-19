@@ -1,6 +1,7 @@
 package leecode.maxrectangle;
 
-/*
+/* Maximal Rectangle
+
  * O(m*n)
  */
 public class Solution {
