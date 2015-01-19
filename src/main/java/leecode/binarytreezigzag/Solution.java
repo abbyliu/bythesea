@@ -6,13 +6,13 @@ import java.util.List;
 import java.util.Queue;
 
 import leecode.postordertree.TreeNode;
-/*
+/* Binary Tree Zigzag Level Order Traversal
  * Given a binary tree, return the zigzag level order traversal of its nodes' values. 
  * (ie, from left to right, then right to left for the next level and alternate between).
  * O(n), O(n)
  */
 public class Solution {
-		public List<List<Integer>> zigzagLevelOrder2(TreeNode root) {
+		public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
 			List<List<Integer>> result  = new ArrayList<>();
 			if (root == null) return result;
 			boolean reverse = false;
@@ -45,38 +45,4 @@ public class Solution {
 			return result;
 		}
 		
-	    public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
-	        List<List<Integer>> result = new ArrayList<>();
-	        if (root == null) return result;
-	        
-	        Queue<TreeNode> nodes = new LinkedList<TreeNode>();
-	        nodes.offer(root);
-	        boolean reverse = false;
-	        TreeNode dummy = new TreeNode(1);
-	        nodes.offer(dummy);
-	        result.add(new ArrayList<Integer>());
-	        while (!nodes.isEmpty()) {
-	        	TreeNode node = nodes.poll();
-	        	if (node == dummy) {
-	        		if (!nodes.isEmpty()) {
-	        			result.add(new ArrayList<Integer>());
-	        			nodes.offer(dummy);
-	        			reverse = ! reverse;
-	        		}
-	        	} else {
-	        		if (reverse) {
-	        			result.get(result.size()-1).add(0, node.val);
-	        		} else {
-	        			result.get(result.size()-1).add(node.val);
-	        		}
-	        		if (node.left != null) {
-	        			nodes.offer(node.left);
-	        		}
-	        		if (node.right != null) {
-	        			nodes.offer(node.right);
-	        		}
-	        	}
-	        }
-	        return result;
-	    }
 }

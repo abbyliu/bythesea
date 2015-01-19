@@ -1,12 +1,13 @@
 package leecode.maxdepthbinarytree;
 
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Stack;
 
 import leecode.postordertree.TreeNode;
 
-/*Given a binary tree, find its maximum depth.
+/* Maximum Depth of Binary Tree
+ * 
+ * 
+ * Given a binary tree, find its maximum depth.
 
 The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
 O(n)
@@ -20,30 +21,6 @@ public class Solution {
         return 1 + Math.max(left, right);
     }
 
-    public int maxDepth3(TreeNode root) {
-    	if (root == null) return 0;
-    	Queue<TreeNode> q = new LinkedList<>();
-    	q.offer(root);
-    	int depth = 1;
-    	Queue<TreeNode> tmp = new LinkedList<>();
-    	while (!q.isEmpty()) {
-    		TreeNode node = q.poll();
-    		if (node.left!= null) {
-    			tmp.offer(node.left);
-    		}
-    		if (node.right != null) {
-    			tmp.offer(node.right);
-    		}
-    		if(q.isEmpty()) {
-    			q = tmp;
-    			if (!q.isEmpty()) {
-    				depth++;
-    			}
-    			tmp = new LinkedList<>();
-    		}
-    	}
-    	return depth;
-    }
     public int maxDepth2(TreeNode root) {
     	if (root == null) return 0;
     	Stack<TreeNode> stack = new Stack<>();
