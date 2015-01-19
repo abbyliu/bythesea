@@ -2,7 +2,7 @@ package leecode.insertinterval;
 
 import java.util.ArrayList;
 import java.util.List;
-/*
+/* Insert Interval
  * Given a set of non-overlapping intervals, insert a new interval into the intervals (merge if necessary).
 
 You may assume that the intervals were initially sorted according to their start times.
@@ -28,34 +28,6 @@ public class Solution {
 		}
 	}
 
-	public List<Interval> insert3(List<Interval> intervals, Interval newInterval) {
-		if (newInterval == null) return intervals;
-		if (intervals == null || intervals.size() == 0) {
-			List<Interval> ret = new ArrayList<>();
-			ret.add(newInterval);
-			return ret;
-		}
-		int min = 0;
-		int max =0;
-		Interval toInsert = newInterval;
-		int i = 0;
-		for (i = 0; i < intervals.size(); i++) {
-			Interval in = intervals.get(i);
-			if (in.end < toInsert.start) {
-				continue;
-			} else if (toInsert.end < in.start) {
-				break;
-			} else {
-				min = Math.min(in.start, toInsert.start);
-				max = Math.max(in.end, toInsert.end);
-				toInsert = new Interval(min, max);
-				intervals.remove(i);
-				i--;
-			}
-		}
-		intervals.add(i, toInsert);
-		return intervals;
-	}
 	public List<Interval> insert2(List<Interval> intervals, Interval newInterval) {
 
 		int i;

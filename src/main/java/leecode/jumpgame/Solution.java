@@ -1,5 +1,5 @@
 package leecode.jumpgame;
-/*
+/* Jump Game
  * Given an array of non-negative integers, you are initially positioned at the first index of the array.
 
 Each element in the array represents your maximum jump length at that position.
@@ -15,7 +15,19 @@ O(1)
  */
 
 public class Solution {
-	
+    public boolean canJump3(int[] A) {
+        if (A == null || A.length== 0) return false;
+        int maxDist = A[0];
+        int idx = 1;
+        while (idx < A.length && maxDist >= idx && maxDist < A.length-1) {
+            if (A[idx] + idx > maxDist) {
+                maxDist = A[idx] + idx;
+            } 
+            idx++;
+        }
+        return maxDist >= A.length-1;
+    }
+    
 	public boolean canJump2(int[] A) {
 		if (A== null || A.length == 0) return false;
 		if (A.length == 1) return true;

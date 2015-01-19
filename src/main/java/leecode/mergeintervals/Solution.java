@@ -6,7 +6,7 @@ import java.util.Comparator;
 import java.util.List;
 
 import leecode.insertinterval.Interval;
-/*
+/* Merge Intervals
  * Given a collection of intervals, merge all overlapping intervals.
 
 For example,
@@ -31,24 +31,6 @@ public class Solution {
 		}
 		
 	}
-	
-	public List<Interval> merge2(List<Interval> intervals) {
-		if (intervals == null || intervals.size()<=1) return intervals;
-		Collections.sort(intervals, new CComparator());
-		Interval in = intervals.get(0);
-		for (int i = 1; i < intervals.size();i++) {
-			Interval newI = intervals.get(i);
-			if (in.end < newI.start) {
-				in = newI;
-			} else {
-				in.end = Math.max(in.end, newI.end);
-				intervals.remove(i);
-				i--;
-			}
-		}
-		return intervals;
-	}
-	
 	
     public List<Interval> merge(List<Interval> intervals) {
     	if (intervals== null || intervals.size() < 2) return intervals;
