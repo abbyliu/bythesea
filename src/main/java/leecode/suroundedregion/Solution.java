@@ -1,83 +1,13 @@
 package leecode.suroundedregion;
 
-import java.util.Deque;
-import java.util.LinkedList;
 import java.util.Stack;
-/*
+/*  Surrounded Regions
  *  Given a 2D board containing 'X' and 'O', capture all regions surrounded by 'X'.
 
 A region is captured by flipping all 'O's into 'X's in that surrounded region. 
 O(n2)
  */
 public class Solution {
-	
-	   static class Location {
-	        int x;
-	        int y;
-	        public Location(int xx, int yy) {
-	            x = xx;
-	            y = yy;
-	        }
-	    }
-	    public void solve2(char[][] board) {
-	        if (board == null || board.length == 0 || board[0].length==0) return;
-	        boolean[][] visited = new boolean[board.length][board[0].length];
-	        
-	        Deque<Location> q = new LinkedList<>();
-	        for (int i =0; i < board.length; i++) {
-	            if (board[i][0] == 'o') {
-	                q.offer(new Location(i,0));
-	            }
-	            if (board[i][board[i].length-1]=='o') {
-	                q.offer(new Location(i, board[i].length-1));
-	            }
-	        }
-	        
-	        for (int j = 1; j < board[0].length-1;j++) {
-	            if (board[0][j] == 'o') {
-	                q.offer(new Location(0,j));
-	            }
-	            if (board[board.length-1][j] == 'o') {
-	                q.offer(new Location(board.length-1,j));
-	            }
-	        }
-	        
-	        while (!q.isEmpty()) {
-	            Location location = q.poll();
-	            if (!visited[location.x][location.y]) {
-	                visited[location.x][location.y] = true;
-	                board[location.x][location.y] = 'z';
-	                if (location.x >0 && !visited[location.x-1][location.y]
-	                      && board[location.x-1][location.y] == 'o') {
-	                    q.offer(new Location(location.x-1, location.y));
-	                }
-	                if (location.x < board.length-1
-	                      && !visited[location.x+1][location.y]
-	                      && board[location.x+1][location.y] == 'o') {
-	                    q.offer(new Location(location.x+1, location.y))  ;
-	                }
-	                if (location.y>0 && !visited[location.x][location.y-1]
-	                      && board[location.x][location.y-1] == 'o') {
-	                    q.offer(new Location(location.x, location.y-1))          ;
-	                }
-	                if (location.y < board[0].length-1 && !visited[location.x][location.y+1]
-	                      && board[location.x][location.y+1] == 'o') {
-	                    q.offer(new Location(location.x, location.y+1));
-	                }
-	            }
-	        }
-	        for (int i = 0; i < board.length; i++) {
-	            for (int j = 0; j < board[i].length;j++) {
-	                if (board[i][j] == 'o') {
-	                    board[i][j] = 'x';
-	                }
-	                if (board[i][j] == 'z') {
-	                    board[i][j] = 'o';
-	                }
-	            }
-	        }
-	    }
-	
 	
     public void solve(char[][] board) {
     	if (board == null|| board.length == 0) return;

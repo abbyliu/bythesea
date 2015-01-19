@@ -2,7 +2,7 @@ package leecode.summonroottoleaf;
 
 import java.util.Stack;
 
-/*
+/* Sum Root to Leaf Numbers
  * Given a binary tree containing digits from 0-9 only, each root-to-leaf path could represent a number.
 
 An example is the root-to-leaf path 1->2->3 which represents the number 123.
@@ -14,7 +14,6 @@ public class Solution {
     public int sumNumbers(TreeNode root) {
     	if (root == null) return 0;
     	
-    	//int v = findLeafSum(root, 0);
     	int v = findLeafsumNoRecursion(root,0);
     	return v;
     }
@@ -48,18 +47,5 @@ public class Solution {
     	return result;
     }
     
-	@SuppressWarnings("unused")
-	private int findLeafSum(TreeNode root, int start) {
-		if (root.left == null && root.right == null) {
-			return start * 10 + root.val;
-		}
-		int result = 0;
-		if (root.left != null) {
-			result += findLeafSum(root.left, 10 * start + root.val);
-		}
-		if (root.right != null) {
-			result += findLeafSum(root.right, 10 * start + root.val);
-		}
-		return result;
-	}
+	
 }
