@@ -2,7 +2,9 @@ package leecode.addtwonumbers;
 
 import leecode.sortedlisttobst.ListNode;
 
-/*You are given two linked lists representing two non-negative numbers. 
+/* Add Two Numbers
+ * 
+ * You are given two linked lists representing two non-negative numbers. 
  * The digits are stored in reverse order and each of their nodes contain a single digit. 
  * Add the two numbers and return it as a linked list.
 
@@ -24,10 +26,6 @@ public class Solution {
 	
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         return add(l1,l2, 0);
-    }
-    public ListNode addTwoNumber2(ListNode l1, ListNode l2) {
-    	return add2(l1, l2, 0);
-    	
     }
     public ListNode addTwoNumber3(ListNode l1, ListNode l2) {
     	if (l1 == null && l2 == null) return null;
@@ -61,23 +59,6 @@ public class Solution {
     }
 
     
-    private ListNode add2(ListNode first , ListNode second, int carry) {
-    	if (first == null && second == null && carry == 0) return null;
-    	int value = carry;
-    	if (first != null)  {
-    		value += first.val;
-    	}
-    	if (second != null) {
-    		value += second.val;
-    	}
-    	
-    	ListNode result = new ListNode(value%10);
-    	
-    	result.next = add2(first == null? null:first.next, 
-    			second == null? null: second.next,
-    					value/10);
-    	return result;
-    }
 	private ListNode add(ListNode l1, ListNode l2, int carry) {
 		if (l1 == null && l2 == null && carry == 0) return null;
 		int v = carry;

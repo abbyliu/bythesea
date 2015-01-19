@@ -2,7 +2,8 @@ package leecode.twosum;
 
 import java.util.HashMap;
 import java.util.Map;
-/*
+/* Two Sum
+
  * Given an array of integers, find two numbers such that they add up to a specific target number.
  * O(N)
  */

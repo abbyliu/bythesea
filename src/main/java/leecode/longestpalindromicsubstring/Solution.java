@@ -1,5 +1,5 @@
 package leecode.longestpalindromicsubstring;
-/*
+/* Longest Palindromic Substring
  * Given a string S, find the longest palindromic substring in S.
  *  You may assume that the maximum length of S is 1000, and there exists one unique longest palindromic substring.
  *  O(n2), but O(n) is possible via suffix tree
@@ -14,26 +14,6 @@ public class Solution {
 
 	}
 
-	public String longestPalindrome3(String s) {
-		if (s == null || s.length()==0) return s;
-		boolean isP[][] = new boolean[s.length()][s.length()];
-		int max = 1;
-		String maxStr = s.substring(0,1);
-		for (int i = 0; i < s.length();i++) {
-			for (int j = 0; j < i ;j++) {
-				if (s.charAt(i) == s.charAt(j)
-						&& (i-j <=1 || isP[j+1][i-1])) {
-					isP[j][i]= true;
-					if (i-j+1 >max) {
-						maxStr = s.substring(j, i+1);
-						max = i-j+1;
-					}
-				}
-			}
-			isP[i][i]= true;
-		}
-		return maxStr;
-	}
 	public String longestPalindrome2(String s) {
 		if (s == null || s.length() == 0) return s;
 		String ret = s.substring(0,1);

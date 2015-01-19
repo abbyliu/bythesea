@@ -2,7 +2,7 @@ package leecode.longestsubstringwithoutrepeatingc;
 
 import java.util.HashMap;
 import java.util.Map;
-/*
+/* Longest Substring Without Repeating Characters
  * Given a string, find the length of the longest substring without repeating characters. For example, 
  * the longest substring without repeating letters for
  *  "abcabcbb" is "abc", which the length is 3. For "bbbbb" the longest substring is "b", with the length of 1.
@@ -22,18 +22,19 @@ public class Solution {
     public int lengthOfLongestSubstring2(String s) {
     	if (s == null || s.length() ==0) return 0;
     	if (s.length() == 1) return 1;
-    	Map<Character, Integer> mapping = new HashMap<>();
-    	mapping.put(s.charAt(0),0);
     	int start = 0;
     	int max = 1;
-    	for(int i = 1; i< s.length(); i++) {
-    		char ch = s.charAt(i);
-    		Integer idx = mapping.get(ch);
-    		if (idx != null && idx >= start) {
-    			start = idx+1;
-    		}
-			mapping.put(ch,  i);
-			max = Math.max(max, idx-start+1);
+    	Map<Character, Integer> map = new HashMap<>();
+    	for (int i = 0; i < s.length();i++) {
+    	    char c = s.charAt(i);
+    	    if (map.containsKey(c)) {
+    	       int preI = map.get(c);
+    	       if (preI >= start)  {
+    	           start = preI+1;
+    	       }
+    	    }
+    	    map.put(c, i);
+    	    max = Math.max(max, i-start+1);
     	}
     	return max;
     }

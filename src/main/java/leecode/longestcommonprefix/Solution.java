@@ -1,6 +1,6 @@
 package leecode.longestcommonprefix;
 
-/*
+/* Longest Common Prefix
  * Write a function to find the longest common prefix string amongst an array of strings. 
  * O(n* shortest string len)
  */
@@ -14,27 +14,7 @@ public class Solution {
 
 	}
 	
-	public String longestCommonPrefix2(String[] strs) {
-		if (strs == null || strs.length ==0) return "";
-		String str = strs[0];
-		for (int i = 1; i < strs.length;i++) {
-			if (strs[i].length() < str.length()) {
-				str = strs[i];
-			}
-		}
-		int idx = 0;
-		while (idx < str.length()) {
-			char c = str.charAt(idx);
-			for (String strr: strs) {
-				if (c != strr.charAt(idx)) {
-					return str.substring(0, idx);
-				}
-			}
-			idx++;
-		}
-		return str;
-	}
-	
+
 	   public String longestCommonPrefix(String[] strs) {
 		   if (strs == null || strs.length == 0) return "";
 		   int min = strs[0].length();
@@ -59,4 +39,22 @@ public class Solution {
 		   return ma;
 	   }
 
+		public String longestCommonPrefix2(String[] strs) {
+		    if (strs == null || strs.length==0) return "";
+		    String shortest = strs[0];
+		    for (int i = 1; i < strs.length;i++) {
+		        if (strs[i].length() < shortest.length()) {
+		            shortest = strs[i];
+		        }
+		    }
+		    for (int i = 0; i < shortest.length();i++) {
+		        char c = shortest.charAt(i);
+		        for (int j = 0; j < strs.length;j++) {
+		            if (strs[j].charAt(i)!= c) {
+		                return shortest.substring(0,i);
+		            }
+		        }
+		    }
+		    return shortest;
+		}
 }

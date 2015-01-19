@@ -1,5 +1,5 @@
 package leecode.reverseinteger;
-/*
+/* Reverse Integer
  * Reverse digits of an integer.
 
 Example1: x = 123, return 321

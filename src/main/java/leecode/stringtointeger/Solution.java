@@ -1,6 +1,7 @@
 package leecode.stringtointeger;
 
-/*
+/* String to Integer (atoi)
+
  * Implement atoi to convert a string to an integer.
 
 Hint: Carefully consider all possible input cases.

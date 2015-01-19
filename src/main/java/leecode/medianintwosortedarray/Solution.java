@@ -1,5 +1,6 @@
 package leecode.medianintwosortedarray;
-/*
+/* Median of Two Sorted Arrays
+
  * There are two sorted arrays A and B of size m and n respectively. 
  * Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).
  * O(log(m+n))
@@ -14,51 +15,7 @@ public class Solution {
 		int[] A = {};
 		int[] B  = {1,2,3,4,5};
 		Solution s = new Solution();
-		s.findMedianSortedArrays2(A, B);
-	}
-
-	public double findMedianSortedArrays2(int A[], int B[]) {
-		if (A == null || B== null) return 0;
-		int n = A.length;
-		int m = B.length;
-		if ((m+n)%2 ==1) {
-			return findKthElement(A, B, (m+n)/2, 0, n-1, 0, m-1);
-		} else {
-			return (findKthElement(A, B, (m+n)/2, 0, n-1, 0, m-1)
-			+ findKthElement(A, B, (m+n)/2-1, 0, n-1, 0, m-1))*0.5; 
-		}
-	}
-	private double findKthElement(int[] a, int[] b, int k, int startA, int endA, int startB,
-			int endB) {
-		int aLen = endA - startA+1;
-		int bLen = endB- startB+1;
-		if (aLen == 0) {
-			return b[startB+k];
-		}
-		if (bLen == 0) {
-			return a[startA+k];
-		}
-		if (k == 0) {
-			return a[startA] < b[startB]? a[startA]:b[startB];
-		}
-		
-		int aMid = aLen * k/(aLen + bLen);
-		int bMid = k - aMid -1;
-		
-		aMid += startA;
-		bMid += startB;
-		
-		if (a[aMid] > b[bMid]) {
-			k = k - (bMid-startB+1);
-			startB = bMid + 1;
-			endA = aMid;
-		} else {
-			k = k - (aMid - startA+1);
-			startA = aMid +1;
-			endB = bMid;
-		}
-		
-		return findKthElement(a, b, k, startA, endA, startB, endB);
+		s.findMedianSortedArrays(A, B);
 	}
 
 	public double findMedianSortedArrays(int A[], int B[]) {
