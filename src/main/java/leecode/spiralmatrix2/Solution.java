@@ -1,6 +1,6 @@
 package leecode.spiralmatrix2;
 
-/*
+/* Spiral Matrix II
  * Given an integer n, generate a square matrix filled with elements from 1 to n2 in spiral order.
 
 For example,
@@ -58,4 +58,56 @@ public class Solution {
 			return i > 0 && result[i-1][j] == 0;
 		}
 	}
+	
+    public int[][] generateMatrix2(int n) {
+        if (n<1) return new int[0][0];
+        int[][] data = new int[n][n];
+        int minRow = 0;
+        int maxRow = data.length-1;
+        int minCol = 0;
+        int maxCol = data[0].length-1;
+        int value = n * n;
+        int idx = 1;
+        int direction = 1;
+        int row = 0; int col = 0;
+        while (idx <= value) {
+            data[row][col]= idx;
+            idx++;
+            if (direction ==1) {
+                if (col == maxCol) {
+                    minRow++;
+                    row++;
+                    direction = 2;
+                } else {
+                    col++;
+                }
+            } else if (direction == 2) {
+                if (row == maxRow) {
+                    maxCol--;
+                    col--;
+                    direction = 3;
+                } else {
+                    row++;
+                }
+            } else if (direction == 3) {
+                if (col == minCol) {
+                    maxRow--;
+                    row--;
+                    direction = 4;
+                } else {
+                    col--;
+                }
+            } else if (direction == 4) {
+                if (row == minRow) {
+                    minCol++;
+                    col++;
+                    direction = 1;
+                } else {
+                    row--;
+                }
+            }
+        }
+        
+        return data;
+    }
 }

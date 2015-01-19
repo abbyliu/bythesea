@@ -1,5 +1,5 @@
 package leecode.lengthoflastword;
-/*
+/* Length of Last Word
  * Given a string s consists of upper/lower-case alphabets and empty space 
  * characters ' ', return the length of last word in the string.
  * O(s.length())
@@ -7,48 +7,8 @@ package leecode.lengthoflastword;
  */
 public class Solution {
 	
-	public int lengthOfLastWord2(String s) {
-		if (s == null || s.length() == 0) return 0;
-		boolean inword = false;
-		boolean startWord = true;
-		int i = 0;
-		int startIdx = 0;
-		int length = 0;
-		while (i < s.length()) {
-			char ch = s.charAt(i);
-			if (isChar(ch)) {
-				if (startWord) {
-					if (!inword) {
-						inword = true;
-						startIdx = i;
-					} 
-				}
-			} else if (isSpace(ch)) {
-				if (inword) {
-					inword = false;
-					length = i - startIdx;
-				}
-				startWord = true;
-			} else {
-				inword = false;
-				startWord = false;
-			}
-			i++;
-		}
-		if (inword) {
-			length = i - startIdx;
-		}
-		return length;
-	}
-	
-	private boolean isSpace(char ch) {
-		return ch == ' ';
-	}
 
-	private boolean isChar(char ch) {
-		return (ch>='a' && ch<='z')
-				|| (ch>='A' && ch<='Z');
-	}
+	
     public int lengthOfLastWord(String s) {
     	if (s == null || s.length() == 0) return 0;
     	boolean inWord = false;
@@ -82,6 +42,35 @@ public class Solution {
     		lastwordLength = length;
     	}
     	return lastwordLength;
+    }
+    
+    public int lengthOfLastWord2(String s) {
+        if (s == null || s.length()==0) return 0;
+        int idx = s.length() -1;
+        
+        int begin = idx;
+        boolean inword = false;
+        while (idx >=0) {
+            char c = s.charAt(idx);
+            if (c == ' ') {
+                if (inword) {
+                    return begin - idx;
+                }
+            } else if ((c >='a' && c<='z') || (c >= 'A' && c <= 'Z')){
+                if (!inword) {
+                    inword = true;
+                    begin = idx;
+                }
+            } else {
+                inword = false;
+            }
+            idx--;
+        }
+        
+        if (inword) {
+            return begin - idx;    
+        }
+        return 0;
     }
     
     public static void main(String[] args) {

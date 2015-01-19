@@ -2,7 +2,8 @@ package leecode.permutationsequence;
 
 import java.util.ArrayList;
 import java.util.List;
-/*
+/* Permutation Sequence
+
  * The set [1,2,3,...,n] contains a total of n! unique permutations.
 
 By listing and labeling all of the permutations in order,
@@ -22,32 +23,6 @@ O(n)
  */
 public class Solution {
 	
-	public String getPermutatino2(int n, int k) {
-		List<Integer> data = new ArrayList<>();
-		for (int i = 1; i <=n ;i++) {
-			data.add(i);
-		}
-		int total = 1;
-		for (int i = 1; i <=n;i++) {
-			total *= i;
-		}
-		
-		if ( k > total) {
-			return null;
-		}
-		
-		StringBuilder builder = new StringBuilder();
-		k = k -1;
-		while (n  > 0 ) {
-			total = total/n;
-			int selected = k/total;
-			builder.append(data.get(selected));
-			data.remove(selected);
-			n--;
-			k  = k %total;
-		}
-		return builder.toString();
-	}
     public String getPermutation(int n, int k) {
     	List<Integer> sets = new ArrayList<>();
     	for (int i = 1; i <=n;i++) {
