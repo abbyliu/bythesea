@@ -2,32 +2,34 @@ package leecode.permutation1;
 
 import java.util.ArrayList;
 import java.util.List;
-/*
+/* Permutations
+
  * Given a collection of numbers, return all possible permutations. 
  * O(factorial)
  */
 public class Solution {
 	
 	public List<List<Integer>> permute2(int[] num) {
-		List<List<Integer>> result = new ArrayList<>();
-		if (num == null || num.length == 0) return result;
-		List<Integer> first = new ArrayList<>();
-		result.add(first);
-		first.add(num[0]);
-		for (int i = 1 ; i< num.length;i++ ) {
-			int v = num[i];
-			List<List<Integer>> ii = new ArrayList<>();
-			for (List<Integer> rr : result) {
-				for (int k = 0; k <= rr.size();k++) {
-					List<Integer> iss = new ArrayList<>(rr);
-					iss.add(k, v);
-					ii.add(iss);
-				}
-			}
-			result = ii;
-		}
-		return result;
+	    List<List<Integer>> result = new ArrayList<>();
+	    if (num == null || num.length ==0) return result;
+	    List<Integer> tmp = new ArrayList<>();
+	    result.add(tmp);
+	    List<List<Integer>> tp = new ArrayList<>();
+	    for (int i = 0; i < num.length;i++) {
+	        for (List<Integer> pre: result) {
+	            for (int j = 0; j <= pre.size();j++) {
+	                List<Integer> copy = new ArrayList<>(pre);
+	                copy.add(j, num[i]);
+	                tp.add(copy);
+	            }
+	        }
+	        result = tp;
+	        tp = new ArrayList<>();
+	    }
+	    return result;
+	    
 	}
+	
     public List<List<Integer>> permute(int[] num) {
     	List<List<Integer>> result = new ArrayList<>();
     	if (num == null || num.length == 0) return result;

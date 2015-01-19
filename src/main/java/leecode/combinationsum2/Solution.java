@@ -2,10 +2,8 @@ package leecode.combinationsum2;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-/*
+/*  Combination Sum II
  *  Given a collection of candidate numbers (C) and a target number (T), 
  *  find all unique combinations in C where the candidate numbers sums to T.
 
@@ -22,7 +20,7 @@ public class Solution {
 		// TODO Auto-generated method stub
 		int[] num = {1,2};
 		Solution s = new Solution();
-		s.combinationSum2(num, 2);
+		s.combinationSum3(num, 2);
 	}
 	
 	public List<List<Integer>> combinationSum3(int[] num , int target) {
@@ -49,39 +47,5 @@ public class Solution {
 		}
 	}
 	
-    public List<List<Integer>> combinationSum2(int[] num, int target) {
-    	Set<List<Integer>> result = new HashSet<>();
-    	if (target <= 0 || num == null || num.length == 0) return new ArrayList<List<Integer>>(result);
-    	Arrays.sort(num);
-    	result = findCombinations(num, 0, target);
-     	return new ArrayList<List<Integer>>(result);
-    }
-	private Set<List<Integer>> findCombinations(int[] candidates, int i ,int target) {
-		if (i >= candidates.length) {
-			return new HashSet<List<Integer>>();
-		}
-		
-		if (candidates[i] > target) {
-			return new HashSet<List<Integer>>();
-		}
-		Set<List<Integer>> returns = new HashSet<>();
-		for (int idx = 0; idx * candidates[i] <= target && idx < 2; idx++) {
-			List<Integer> result = new ArrayList<>();
-			for (int j = 0; j < idx; j++) {
-				result.add(candidates[i]);
-			}
-			int v = target - idx * candidates[i];
-			if (v > 0) {
-				Set<List<Integer>> reduced = findCombinations(candidates, i+1, target - idx * candidates[i]);
-				for (List<Integer> red: reduced) {
-					red.addAll(0,result);
-					returns.add(red);
-				}
-			} else {
-				returns.add(result);
-			}
-		}
-		return returns;
-	}
 
 }

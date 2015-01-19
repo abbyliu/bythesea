@@ -1,7 +1,7 @@
 package leecode.trappingrainwater;
 
 
-/*
+/*  Trapping Rain Water
  *  Given n non-negative integers representing an elevation map
  *   where the width of each bar is 1, compute how much water it is able to trap after raining.
 
@@ -36,6 +36,30 @@ public class Solution {
     		}
     	}
     	return trapped;
+    }
+    
+    public int trap2(int[] A) {
+        if (A == null || A.length == 0) return 0;
+        int[] maxHeightL = new int[A.length];
+        int max = 0;
+        for (int i = 0; i < A.length;i++ ) {
+            maxHeightL[i] = max;
+            if (A[i] > max) {
+                max = A[i];
+            }
+        }
+        int total = 0;
+        max = 0;
+        for (int i = A.length-1 ; i>=0;i--) {
+            int v = Math.min(maxHeightL[i], max);
+            if (v > A[i]) {
+                total += (v - A[i]);
+            }
+            if (A[i] > max) {
+                max = A[i];
+            }
+        }
+        return total;
     }
 	/**
 	 * @param args
