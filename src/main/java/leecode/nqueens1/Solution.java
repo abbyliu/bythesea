@@ -2,7 +2,7 @@ package leecode.nqueens1;
 
 import java.util.ArrayList;
 import java.util.List;
-/*
+/* N-Queens
  * Given an integer n, return all distinct solutions to the n-queens puzzle.
 
 Each solution contains a distinct board configuration of the n-queens' placement, 
@@ -13,8 +13,8 @@ public class Solution {
     public List<String[]> solveNQueens(int n) {
      List<String[]> result = new ArrayList<>();
      if (n <1) return result;
-     int[] rows = new int[n];
-     placeQueuen(rows, 0, result);
+     int[] cols = new int[n];
+     placeQueuen(cols, 0, result);
      return result;
     }
     
@@ -56,17 +56,17 @@ public class Solution {
 	    return true;
 	}
 
-	private void placeQueuen(int[] rows, int row, List<String[]> result) {
-		if (row == rows.length) {
-			String[] values = new String[rows.length];
-			for (int ii = 0 ;ii < rows.length;ii++) {
+	private void placeQueuen(int[] cols, int row, List<String[]> result) {
+		if (row == cols.length) {
+			String[] values = new String[cols.length];
+			for (int ii = 0 ;ii < cols.length;ii++) {
 				StringBuilder builder = new StringBuilder();
-				int v = rows[ii];
+				int v = cols[ii];
 				for (int idx = 0; idx < v; idx++) {
 					builder.append(".");
 				}
 				builder.append("Q");
-				for (int idx = v+1; idx < rows.length; idx++) {
+				for (int idx = v+1; idx < cols.length; idx++) {
 					builder.append(".");
 				}
 				values[ii] = builder.toString();
@@ -74,17 +74,17 @@ public class Solution {
 			result.add(values);
 			return;
 		}
-		for (int j = 0 ; j < rows.length; j++) {
-			rows[row] = j;
-			if (checkRow(row, rows)) {
-				placeQueuen(rows, row+1, result);
+		for (int j = 0 ; j < cols.length; j++) {
+			cols[row] = j;
+			if (checkRow(row, cols)) {
+				placeQueuen(cols, row+1, result);
 			}
 		}
 	}
 
-	private boolean checkRow(int row, int[] rows) {
+	private boolean checkRow(int row, int[] cols) {
 		for (int i = 0; i < row; i++) {
-			int diff = Math.abs(rows[i] - rows[row]);
+			int diff = Math.abs(cols[i] - cols[row]);
 			if (diff == 0 || diff == row - i) 
 				return false;
 		}
