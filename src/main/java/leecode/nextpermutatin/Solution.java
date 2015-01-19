@@ -1,7 +1,7 @@
 package leecode.nextpermutatin;
 
 import java.util.Arrays;
-/*
+/*  Next Permutation
  *  Implement next permutation, which rearranges numbers into the lexicographically next greater permutation of numbers.
 
 If such arrangement is not possible, it must rearrange it as the lowest possible order (ie, sorted in ascending order).
@@ -15,7 +15,40 @@ Here are some examples. Inputs are in the left-hand column and its corresponding
 O(n)
  */
 public class Solution {
-
+	public void nextPermutation4(int[] num) {
+	    if (num == null || num.length <=1) return;
+	    int i = -1;
+	    for (i = num.length-2; i>=0;i--) {
+	        if (num[i] < num[i+1]) {
+	            break;
+	        }
+	    }
+	    if (i==-1) {
+	        Arrays.sort(num);
+	        return;
+	    }
+	    int j = num.length-1;
+	    for (;j>i;j--) {
+	        if (num[j] > num[i]) {
+	            break;
+	        }
+	    }
+	    int tmp = num[i];
+	    num[i] = num[j];
+	    num[j] = tmp;
+	    int start = i+1;
+	    int end = num.length-1;
+	    while (start < end) {
+	        int temp = num[start];
+	        num[start] = num[end];
+	        num[end] = temp;
+	        start++;
+	        end--;
+	        
+	    }
+	    
+	}
+	
 	public void nextPermutation3(int[] num) {
 		if (num == null || num.length <=1) return ;
 		int reversePoint = num.length-2;

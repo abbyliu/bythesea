@@ -1,6 +1,6 @@
 package leecode.searchinsert;
 
-/*
+/* Search Insert Position
  * O(lgn)
  */
 public class Solution {
@@ -34,5 +34,25 @@ public class Solution {
     	} else {
     		return start;
     	}
+    }
+    
+    public int searchInsert2(int[] A, int target) {
+        if (A == null || A.length==0) return 0;
+        int start =0;
+        int end = A.length-1;
+        while (start < end) {
+            int mid = (end+start)/2;
+            if (A[mid] == target) return mid;
+            if (A[mid] > target) {
+                end = mid -1;
+            } else {
+                start = mid+1;
+            }
+        }
+        if (target > A[start]) {
+            return start+1;
+        } else {
+            return start;
+        }
     }
 }

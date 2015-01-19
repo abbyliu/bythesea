@@ -1,5 +1,5 @@
 package leecode.searchforarange;
-/*
+/* Search for a Range
  * Given a sorted array of integers, find the starting and ending position of a given target value.
 
 Your algorithm's runtime complexity must be in the order of O(log n).
@@ -61,4 +61,49 @@ public class Solution {
 		}
 		return start;
 	}
+	
+	   public int[] searchRange2(int[] A, int target) {
+		      int[] result = {-1,-1};
+		      if (A == null || A.length == 0) return result;
+		      int start = 0;
+		      int end = A.length-1;
+		      int match = -1;
+		      while (start<=end) {
+		          int mid = (start+end)/2;
+		          if (A[mid] == target) {
+		              match =mid;
+		              break;
+		          } else if (A[mid] > target) {
+		              end = mid -1;
+		          } else {
+		              start = mid +1;
+		          }
+		      }
+		      if (match == -1) {
+		          return result;
+		      }
+		      start = 0;
+		      end = match;
+		      while (start<=end) {
+		          int mid = (start+end)/2;
+		          if (A[mid] == target) {
+		              end = mid-1;
+		          } else {
+		              start = mid+1;
+		          }
+		      }
+		      result[0] = start;
+		      start = match;
+		      end = A.length-1;
+		      while (start<=end){
+		          int mid = (start+end)/2;
+		          if (A[mid] == target) {
+		              start = mid+1;
+		          } else {
+		              end = mid-1;
+		          }
+		      }
+		      result[1]= end;
+		      return result;
+		    }
 }
