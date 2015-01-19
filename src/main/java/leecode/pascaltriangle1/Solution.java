@@ -2,7 +2,7 @@ package leecode.pascaltriangle1;
 
 import java.util.ArrayList;
 import java.util.List;
-/*
+/* Pascal's Triangle
  * Given numRows, generate the first numRows of Pascal's triangle.
 
 For example, given numRows = 5,
