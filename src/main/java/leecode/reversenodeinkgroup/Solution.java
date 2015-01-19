@@ -1,7 +1,7 @@
 package leecode.reversenodeinkgroup;
 
 import leecode.sortedlisttobst.ListNode;
-/*
+/*  Reverse Nodes in k-Group
  *  Given a linked list, reverse the nodes of a linked list k at a time and return its modified list.
 
 If the number of nodes is not a multiple of k then left-out nodes in the end should remain as it is.
@@ -59,5 +59,33 @@ public class Solution {
     	}
     	lastNode.next = currentHead;
     	return dummy.next;
+    }
+    
+    public ListNode reverseKGroup2(ListNode head, int k) {
+        ListNode dummy =  new ListNode(1);
+        dummy.next = head;
+        ListNode current =head;
+        int len = 0;
+        while (current != null) {
+            len++;
+            current = current.next;
+        }
+        if (len < k) return head;
+        ListNode pre = null;
+        current = head;
+        ListNode preNode = dummy;
+        for (int i = 0; i < len/k; i++) {
+            ListNode tail = current;
+            for (int j = 0; j < k;j ++) {
+                ListNode nextb = current.next;
+                current.next = pre;
+                pre = current;
+                current = nextb;
+            }
+            preNode.next = pre;
+            preNode = tail;
+        }
+        preNode.next = current;
+        return dummy.next;        
     }
 }

@@ -1,6 +1,6 @@
 package leecode.divideinteger;
 
-/*
+/* Divide Two Integers
  * Divide two integers without using multiplication, division and mod operator.
  * O(logQ)
  */
@@ -15,60 +15,42 @@ public class Solution {
 		s.divide(2147483647, 2);
 	}
 	
-	public int divide3(int divident, int divisor) {
-		if (divisor == 0) return Integer.MAX_VALUE;
-		if (divident == 0) return 0;
-		boolean negative = (divident < 0)^ (divisor < 0);
-		long v1 = Math.abs(divident*1l);
-		long v2 = Math.abs(divisor*1l);
-		
-		long v = 0;
-		while (v1 >= v2) {
-			long vv = 1;
-			long sub = v2;
-			for (sub = v2; sub << 1 <= v1; ) {
-				vv = vv << 1;
-				sub = sub << 1;
-			}
-			v = v+ vv;
-			v1 = v1 -sub;
-		}
-		
-		return negative? (int) (-1l * v): (int)v;
-	}
-    public int divide2(int dividend, int divisor) {  
-        if(divisor==0)  
-            return Integer.MAX_VALUE;  
-          
-        int res = 0;  
-        if(dividend==Integer.MIN_VALUE)  
-        {  
-            res = 1;  
-            dividend += Math.abs(divisor);  
-        }  
-        if(divisor==Integer.MIN_VALUE)  
-            return res;  
-        boolean isNeg = ((dividend^divisor)>>>31==1)?true:false;  
-        dividend = Math.abs(dividend);  
-        divisor = Math.abs(divisor);  
-        int digit = 0;  
-        while(divisor<=(dividend>>1))  
-        {  
-            divisor <<= 1;  
-            digit++;  
-        }  
-        while(digit>=0)  
-        {  
-            if(dividend>=divisor)  
-            {  
-                dividend -= divisor;  
-                res += 1<<digit;  
-            }  
-            divisor >>= 1;  
-            digit--;  
-        }  
-        return isNeg?-res:res;  
-    }  
+	   public int divide2(int dividend, int divisor) {
+	        if (divisor == 0) return Integer.MAX_VALUE;
+	        if (dividend ==0) return 0;
+	        if (divisor == 1) return dividend;
+	        boolean negative = (dividend < 0) ^ (divisor < 0);
+	        long v1 = Math.abs(dividend *1l);
+	        long v2 = Math.abs(divisor * 1l);
+	        long v = 0;
+	        int fact = 1;
+
+	        long v3 = v2;
+	        while (v1 >= (v3<<1)) {
+	            v3 = v3 << 1;
+	            fact = fact << 1;
+	        }
+
+	        while ( v1 >=v2) {
+	            v1 = v1 - v3;
+	            v = v + fact;
+	            while (v3 > v1) {
+	                v3 = v3 >> 1;
+	                fact = fact >> 1;
+	            }
+	        }        
+
+	        if (negative) {
+	            v = v * -1;
+	        }
+	        if (v == Integer.MIN_VALUE) {
+	            return Integer.MIN_VALUE;
+	        } else if (v == Integer.MAX_VALUE) {
+	            return Integer.MAX_VALUE;
+	        } else {
+	            return (int)v;
+	        }
+	    }
 
 	public int divide(int dividend, int divisor) {
 		boolean positive = (dividend > 0 && divisor > 0)

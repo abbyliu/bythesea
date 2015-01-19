@@ -2,7 +2,7 @@ package leecode.generateparentheses;
 
 import java.util.ArrayList;
 import java.util.List;
-/*
+/* Generate Parentheses
  * Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
 
 For example, given n = 3, a solution set is:
@@ -20,31 +20,10 @@ public class Solution {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Solution s = new Solution();
-		List<String> result = s.generateParenthesis2(2);
+		List<String> result = s.generateParenthesis(2);
 		System.out.println(result);
 	}
 	
-	public List<String> generateParenthesis2(int n) {
-		List<String> result = new ArrayList<>();
-		if (n <=0) return result;
-		generateResult(0, 0, n, "", result);
-		return result;
-	}
-	
-    private void generateResult(int left, int right, int total, String str,
-			List<String> result) {
-    	if (left == total && right == total) {
-    		result.add(str);
-    		return;
-    	}
-    	if (left < total && left >=right) {
-    		generateResult(left+1, right, total, str+"(", result);
-    	}
-    	if (right < total && right < left) {
-    		generateResult(left, right+1, total, str+")", result);
-    	}
-	}
-
 	public List<String> generateParenthesis(int n) {
     	List<String> result = new ArrayList<>();
     	if (n <=0) return result;
@@ -68,5 +47,28 @@ public class Solution {
 		}
 		return s;
 	}
+	
+	   public List<String> generateParenthesis2(int n) {
+	        List<String> result = new ArrayList<>();
+	        if (n <=0) return result;
+	        String tmp = "";
+	        generate(n, n, tmp, result);
+	        return result;
+	    }
+	    
+	    private void generate(int left, int right, String tmp, List<String> result) {
+	        if (left == 0 && right == 0) {
+	            result.add(tmp);
+	            return ;
+	        }
+	        if (left > 0) {
+	            generate(left-1, right, tmp + "(", result);
+	        }
+	        
+	        if (right > 0 && right > left) {
+	            generate(left, right-1, tmp + ")", result);
+	        }
+	        
+	    }
 
 }

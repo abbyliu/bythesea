@@ -1,7 +1,7 @@
 package leecode.swapnodesinpair;
 
 import leecode.sortedlisttobst.ListNode;
-/*
+/*  Swap Nodes in Pairs
  *  Given a linked list, swap every two adjacent nodes and return its head.
 
 For example,
@@ -43,5 +43,28 @@ public class Solution {
     	tail.next = previous;
     	return dummy.next;
     	
+    }
+    
+    public ListNode swapPairs2(ListNode head) {
+        if (head == null || head.next == null) return head;
+        ListNode dummy = new ListNode(1);
+        dummy.next= head;
+        
+        ListNode current = head;
+        ListNode previous = dummy;
+        while (current != null) {
+            if (current.next == null) {
+                break;
+            } else {
+                ListNode back = current.next.next;
+                previous.next = current.next;
+                current.next.next = current;
+                previous = current;
+                current.next = back;
+                current = back;
+            }
+        }
+        
+        return dummy.next;
     }
 }

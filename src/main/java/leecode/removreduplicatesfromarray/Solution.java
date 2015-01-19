@@ -1,5 +1,5 @@
 package leecode.removreduplicatesfromarray;
-/*
+/*  Remove Duplicates from Sorted Array
  *  Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.
 
 Do not allocate extra space for another array, you must do this in place with constant memory.
@@ -30,5 +30,16 @@ public class Solution {
     		idx++;
     	}
     	return num;
+    }
+    
+    public int removeDuplicates2(int[] A) {
+        if (A == null || A.length == 0) return 0;
+        int start = 0;
+        for (int i = 1; i < A.length;i++) {
+            if (A[i] != A[start]) {
+                A[++start] = A[i];
+            }
+        }
+        return start+1;
     }
 }

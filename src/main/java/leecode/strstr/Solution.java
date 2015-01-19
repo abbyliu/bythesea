@@ -16,25 +16,20 @@ public class Solution {
 
 	}
     public String strStr(String haystack, String needle) {
-    	if (haystack == null || needle == null) return null;
-    	if (needle.length() == 0) return haystack;
-    	
-    	String s = haystack;
-    	while (needle.length() <= s.length()) {
-    		if (match(s, needle)) {
-    			return s;
-    		} else {
-    			s = s.substring(1);
-    		}
-    	}
-    	return null;
+        if (haystack == null || needle == null) return null;
+        for (int i = 0; i <= haystack.length() - needle.length();i++) {
+            if (match(haystack, i, needle)) {
+                return haystack.substring(i);
+            }
+        }
+        return null;
     }
-	private boolean match(String s, String needle) {
-		for (int i = 0; i < needle.length(); i++) {
-			if (s.charAt(i) != needle.charAt(i) ) {
-				return false;
-			}
-		}
-		return true;
-	}
+    private boolean match(String s, int idx, String n) {
+        for (int i = 0; i < n.length();i++) {
+            if (s.charAt(i+idx) != n.charAt(i)) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
