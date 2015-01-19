@@ -1,5 +1,5 @@
 package leecode.editdistance;
-/*
+/* Edit Distance
  * Given two words word1 and word2, find the minimum number of steps required to convert word1 to word2. (each operation is counted as 1 step.)
 
 You have the following 3 operations permitted on a word:
@@ -63,32 +63,4 @@ public class Solution {
     	return dp[word1.length()][word2.length()];
     }
     
-    public int minDistance2(String word1, String word2) {
-    	if (word1 == null && word2 == null) return 0;
-    	int[] dp = new int[word2.length()+1];
-    	for (int j = 0; j < dp.length;j++) {
-    		dp[j] = j;
-    	}
-    	int[] tmp = new int[word2.length()+1];
-    	for (int i = 1; i <= word1.length(); i++) {
-    		tmp[0]= i;
-    		for (int j = 1; j <= word2.length();j++) {
-    			char ch1 = word1.charAt(i-1);
-    			char ch2 = word2.charAt(j-1);
-    			if ( ch1 == ch2) {
-    				tmp[j] = dp[j-1];
-    			} else {
-    				int v1 = dp[j] + 1;
-    				int v2 = tmp[j-1] + 1;
-    				int v3 = dp[j-1] + 1;
-    				tmp[j] = Math.min(v1, Math.min(v2, v3));
-    			}
-    		}
-    		int[] sw = dp;
-    		dp = tmp;
-    		tmp = sw;
-    		
-    	}
-    	return dp[word2.length()];
-    }
 }
