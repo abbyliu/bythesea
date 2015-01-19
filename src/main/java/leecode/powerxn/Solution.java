@@ -1,5 +1,5 @@
 package leecode.powerxn;
-/*
+/* Pow(x, n)
  * Implement pow(x, n). 
  * O(lgn)
  */
