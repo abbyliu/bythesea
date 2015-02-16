@@ -12,7 +12,7 @@ public class Solution {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Solution s = new Solution();
-		s.divide(2147483647, 2);
+		System.out.println(s.divide2(-2147483648, -1));
 	}
 	
 	   public int divide2(int dividend, int divisor) {
@@ -23,7 +23,7 @@ public class Solution {
 	        long v1 = Math.abs(dividend *1l);
 	        long v2 = Math.abs(divisor * 1l);
 	        long v = 0;
-	        int fact = 1;
+	        long fact = 1;
 
 	        long v3 = v2;
 	        while (v1 >= (v3<<1)) {
@@ -43,9 +43,9 @@ public class Solution {
 	        if (negative) {
 	            v = v * -1;
 	        }
-	        if (v == Integer.MIN_VALUE) {
+	        if (v <= Integer.MIN_VALUE) {
 	            return Integer.MIN_VALUE;
-	        } else if (v == Integer.MAX_VALUE) {
+	        } else if (v >= Integer.MAX_VALUE) {
 	            return Integer.MAX_VALUE;
 	        } else {
 	            return (int)v;

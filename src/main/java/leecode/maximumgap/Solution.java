@@ -3,6 +3,9 @@ package leecode.maximumgap;
 import java.util.Arrays;
 
 /* Maximum Gap */
+/* O(N) sapce
+ * O(N) time
+ */
 public class Solution {
     public int maximumGap(int[] num) {
        if (num == null || num.length < 2)

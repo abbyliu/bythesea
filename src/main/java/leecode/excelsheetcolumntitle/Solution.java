@@ -1,6 +1,9 @@
 package leecode.excelsheetcolumntitle;
 
 /* Excel Sheet Column Title */
+/* O（1）space
+ * O(log26(N)) time
+ */
 public class Solution {
     public String convertToTitle(int n) {
         if (n <= 0) return "";

@@ -1,5 +1,8 @@
 package leecode.titletonumber;
 /* Excel Sheet Column Number */
+/* O(1) memory
+ * O(s.length()) length
+ */
 public class Solution {
     public int titleToNumber(String s) {
         int result = 0;

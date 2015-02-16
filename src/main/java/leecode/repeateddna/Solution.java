@@ -6,6 +6,8 @@ import java.util.List;
 
 /*
  * Repeated DNA Sequences
+ * O(2^20) space
+ * O(N) time
  */
 public class Solution {
     

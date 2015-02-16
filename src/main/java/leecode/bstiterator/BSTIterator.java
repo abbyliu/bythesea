@@ -5,6 +5,9 @@ import java.util.Stack;
 import leecode.postordertree.TreeNode;
 
 /* Binary Search Tree Iterator */
+/* O(H) memory
+ * O(1), O(H) time
+ */
 public class BSTIterator {
     private Stack<TreeNode> stack = new Stack<>();
     public BSTIterator(TreeNode root) {

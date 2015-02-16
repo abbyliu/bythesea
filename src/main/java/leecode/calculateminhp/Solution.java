@@ -1,6 +1,9 @@
 package leecode.calculateminhp;
 
 /* Dungeon Game */
+/* O(M*N) memory
+ * O(M*N) time
+ */
 public class Solution {
 
 	   public int calculateMinimumHP(int[][] dungeon) {

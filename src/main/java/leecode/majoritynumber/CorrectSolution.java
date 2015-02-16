@@ -1,6 +1,9 @@
 package leecode.majoritynumber;
 
 /* Majority Element */
+/* O(1) space
+ * O(n) time
+ */
 public class CorrectSolution {
 	   public int majorityElement(int[] num) {
 	        int major = 0;

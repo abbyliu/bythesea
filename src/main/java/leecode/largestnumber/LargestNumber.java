@@ -4,6 +4,9 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 /* Largest Number */
+/* O(N) memory
+ * O(NLog(N)) time
+ */
 public class LargestNumber {
     public String largestNumber(int[] num) {
         String[] output = new String[num.length];

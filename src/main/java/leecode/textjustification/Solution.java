@@ -33,47 +33,52 @@ public class Solution {
         	}
         	boolean lastLine = idx == words.length-1;
         	int numOfWords = idx - start + 1;
-        	if (numOfWords == 1) {
-        		line.append(words[start]);
-        		for (int i = 0; i < L - words[start].length(); i++) {
-        			line.append(" ");
-        		}
-        	} else if (lastLine) {
-        		for (int i = start; i<=idx; i++) {
-        			if (i > start) {
-        				line.append(" ");
-        			}
-        			line.append(words[i]);
-        		}
-        		int remains = L - wordLength  - (numOfWords-1);
-        		for (int j = 0; j < remains; j++) {
-        			line.append(" ");
-        		}
+        	if (lastLine) {
+        		printLastLine(words, idx, line, start);
         	} else {
-        		int numOfSpaces = numOfWords - 1;
-        		int spaces = (L - wordLength)/numOfSpaces;
-        		int remains = (L- wordLength) % numOfSpaces;
-        		for (int i = start; i<=idx; i++) {
-        			if (i > start) {
-        				if (remains > 0) {
-        	        		for (int j = 0; j <= spaces; j++) {
-        	        			line.append(" ");
-        	        		}
-        	        		remains--;
-        				} else {
-        	        		for (int j = 0; j < spaces; j++) {
-        	        			line.append(" ");
-        	        		}
-        				}
-        			}
-        			line.append(words[i]);
-        		}
+        		printEachLineEvenly(words, L, idx, line, wordLength, start,
+						numOfWords);
         	}
+			appendSpace(line, L - line.length());
         	result.add(line.toString());
         	idx++;
         }
         return result;
     }
+
+	private void printEachLineEvenly(String[] words, int L, int idx,
+			StringBuilder line, int wordLength, int start, int numOfWords) {
+		int numOfSpaces = numOfWords - 1;
+		int spaces = (numOfSpaces == 0) ? (L - wordLength):(L - wordLength)/numOfSpaces;
+		int remains = (numOfSpaces == 0) ? 0:(L- wordLength) % numOfSpaces;
+		for (int i = start; i<=idx; i++) {
+			if (i > start) {
+				appendSpace(line, spaces);
+				if (remains > 0) {
+		    		remains--;
+		    		appendSpace(line, 1);
+				} 
+			}
+			line.append(words[i]);
+		}
+	}
+
+	private void printLastLine(String[] words, int idx, StringBuilder line,
+			int start) {
+		for (int i = start; i<=idx; i++) {
+			if (i > start) {
+				appendSpace(line, 1);
+			}
+			line.append(words[i]);
+		}
+	}
+    
+    private void appendSpace(StringBuilder builder, int space) {
+    	for (int i = 0 ; i < space; i++) {
+    		builder.append(" ");
+    	}
+    }
+    
     public static void main(String[] args) {
     	Solution s = new Solution();
     	String[] strs = {"like", "a", "box","of", "chocolates.", "You"}; 

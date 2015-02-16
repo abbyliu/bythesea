@@ -62,4 +62,11 @@ public class Solution {
 	        }
 	    }
 	}
+	
+	public static void main(String[] args) {
+		Solution solution = new Solution();
+		List<List<String>> sets = solution.partition("aaaaaaaaaa");
+		System.out.println(sets.size());
+		System.out.println(sets);
+	}
 }

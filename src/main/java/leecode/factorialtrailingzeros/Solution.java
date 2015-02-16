@@ -1,5 +1,6 @@
 package leecode.factorialtrailingzeros;
 /* Factorial Trailing Zeroes */
+/* O(log5(N)) */
 public class Solution {
     public int trailingZeroes(int n) {
         int total = 0;
